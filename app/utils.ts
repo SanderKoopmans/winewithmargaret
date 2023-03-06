@@ -1,4 +1,6 @@
 import { useMatches } from "@remix-run/react";
+import DOMPurify from "dompurify";
+import { marked } from "marked";
 import { useMemo } from "react";
 
 import type { User } from "~/models/user.server";
@@ -68,4 +70,22 @@ export function useUser(): User {
 
 export function validateEmail(email: unknown): email is string {
   return typeof email === "string" && email.length > 3 && email.includes("@");
+}
+
+/**
+ * Method to create a URL with slug
+ * 
+ * @param category string name of the category the article belongs to
+ * @param slug string unique slug for an article
+ * @returns string
+ */
+export function buildLinkPath(category: string, slug: string): string {
+  if (category === "recipe") {
+    return `/recipe/${slug}`;
+  }
+  return `/article/${slug}`;
+}
+
+export function parseContent(content: string) {
+  return DOMPurify.sanitize(marked.parse(content));
 }
