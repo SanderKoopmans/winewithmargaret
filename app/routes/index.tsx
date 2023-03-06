@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Grape, Instagram, Mail, Search } from "lucide-react";
 import { useEffect } from "react";
 import { Articles } from "~/components/articles/Articles";
@@ -11,21 +10,23 @@ export default function Index() {
     window.addEventListener("resize", resize);
 
     function resize() {
-      const grid = document.querySelector("#masonry");
+      const grid = document.querySelector("#masonry") as HTMLElement;
       const rowHeight = getStyleValue(grid, "grid-auto-rows");
       const rowGap = getStyleValue(grid, "grid-row-gap");
 
-      grid.style.gridAutoRows = "auto";
-      grid.style.alignItems = "self-start";
-      grid.querySelectorAll(".item").forEach((item) => {
-        item.style.gridRowEnd = `span ${Math.ceil(
-          (item.clientHeight + rowGap) / (rowHeight + rowGap)
-        )}`;
-      });
-      grid.removeAttribute("style");
+      if (grid) {
+        grid.style.gridAutoRows = "auto";
+        grid.style.alignItems = "self-start";
+        grid.querySelectorAll(".item").forEach((item) => {
+          (item as HTMLElement).style.gridRowEnd = `span ${Math.ceil(
+            (item.clientHeight + rowGap) / (rowHeight + rowGap)
+          )}`;
+        });
+        grid.removeAttribute("style");
+      }
     }
 
-    function getStyleValue(element, style) {
+    function getStyleValue(element: HTMLElement, style: string): number {
       return parseInt(window.getComputedStyle(element).getPropertyValue(style));
     }
   }, []);

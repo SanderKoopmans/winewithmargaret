@@ -52,17 +52,19 @@ export const Articles = () => {
         },
       ];
       return (
-    articles.map((article) => (
-        <div className="item transition duration-300 p-2 hover:shadow-2xl hover:scale-[1.02] hover:cursor-pointer" key={article.postingDate}>
-          <div className="article">
-            <h3 className="text-4xl mb-4">{article.title}</h3>
-            <img src={article.image} alt={article.title} className="mb-6" />
-            <p className="mb-6">{article.excerpt}</p>
-            <div className="flex py-2 items-center">
-              <p className="capitalize italic text-sm">{new Date(article.postingDate).toLocaleString('default', { day: 'numeric', month: 'long', year: 'numeric' })} / Category</p>
-              <div className="flex-grow border-t-2 border-gray-300 ml-2"></div>
+    <>
+        {articles.map((article) => (
+            <div className="item transition duration-300 p-2 hover:shadow-2xl hover:scale-[1.02] hover:cursor-pointer" key={article.postingDate}>
+              <div className="article">
+                <h3 className="text-4xl mb-4">{article.title}</h3>
+                <img src={article.image} alt={article.title} className="mb-6" />
+                <p className="mb-6">{article.excerpt}</p>
+                <div className="flex py-2 items-center">
+                  <p className="capitalize italic text-sm">{new Date(article.postingDate).toLocaleString('default', { day: 'numeric', month: 'long', year: 'numeric' })} / Category</p>
+                  <div className="flex-grow border-t-2 border-gray-300 ml-2"></div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      ))
+          ))}
+    </>
 )};
