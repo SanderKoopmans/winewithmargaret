@@ -1,10 +1,47 @@
-import { Grape, Instagram, Mail, Search } from "lucide-react";
+import { useLoaderData } from "@remix-run/react";
+import { checkEnvVars, checkStatus } from "~/utils/errorHandling";
 import { useEffect } from "react";
 import { Articles } from "~/components/articles/Articles";
-import Header from "~/components/header/Header";
-import { Navigation } from "~/components/navigation/Navigation";
+import qs from 'qs';
+
+const query = qs.stringify(
+  {
+    populate: {
+      category: { populate: ['name']},
+      thumbnail: { fields: ['url']},
+    },
+  },
+)
+
+export async function loader() {
+  checkEnvVars();
+
+  const response = await fetch(`${process.env.STRAPI_URL_BASE}/api/articles?${query}`,{
+      method:"GET",
+      headers:{
+        "Authorization":`Bearer ${process.env.STRAPI_API_TOKEN}`,
+        "Content-Type":"application/json"
+      }
+    });
+
+    checkStatus(response);
+
+    const data = await response.json();
+
+    if (data.error) {
+      throw new Response("Error loading data from strapi", { status: 500});
+    }
+
+    return data.data;
+}
 
 export default function Index() {
+  const articles = useLoaderData();
+  console.log("🚀 ~ file: index.tsx:40 ~ Index ~ articles:", articles[0].attributes.thumbnail.data.attributes.url)
+  // console.log("🚀 ~ file: index.tsx:30 ~ Index ~ articles:", articles[0].attributes.thumbnail.data[0].attributes)
+  // console.log(''.padEnd(80, '*'))
+  // console.log("🚀 ~ file: index.tsx:30 ~ Index ~ articles:", articles[0].attributes.thumbnail.data[0])
+
   useEffect(() => {
     window.addEventListener("load", resize);
     window.addEventListener("resize", resize);
@@ -32,24 +69,8 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="page-wrapper grid grid-rows-main grid-cols-main h-full">
-      <Header />
-      <aside className="col-span-1 row-span-1 border-l-2 border-l-gray-300 px-2 pt-8">
-        <div className="h-full border-b-2 border-b-gray-300 flex flex-col gap-2 items-center">
-          <Instagram />
-          <Mail />
-          <Search />
-        </div>
-      </aside>
-      <main className="col-span-1 row-start-2 row-end-2 h-full flex flex-col justify-start items-center">
-        <Navigation />
         <div id="masonry" className="wrapper grid gap-2.5 grid-cols-masonry auto-rows-[20px] max-w-[1280px] w-full h-full">
-          <Articles />
+          <Articles articles={articles} />
         </div>
-      </main>
-      <aside className="row-start-2 row-end-2 col-start-2 col-end-2 border-l-2 border-l-gray-300 pt-6 px-2 flex flex-col items-center">
-        <Grape />
-      </aside>
-    </div>
   );
 }

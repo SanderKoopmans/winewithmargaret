@@ -10,6 +10,9 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { Grape, Instagram, Mail, Search } from "lucide-react";
+import Header from "~/components/header/Header";
+import { Navigation } from "~/components/navigation/Navigation";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import customStyles from "./styles/winewithmargaret.css";
@@ -40,7 +43,23 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
+      <div className="page-wrapper grid grid-rows-main grid-cols-main h-full">
+      <Header />
+      <aside className="col-span-1 row-span-1 border-l-2 border-l-gray-300 px-2 pt-8">
+        <div className="h-full border-b-2 border-b-gray-300 flex flex-col gap-2 items-center">
+          <Instagram />
+          <Mail />
+          <Search />
+        </div>
+      </aside>
+      <main className="col-span-1 row-start-2 row-end-2 h-full flex flex-col justify-start items-center">
+        <Navigation />
         <Outlet />
+      </main>
+      <aside className="row-start-2 row-end-2 col-start-2 col-end-2 border-l-2 border-l-gray-300 pt-6 px-2 flex flex-col items-center">
+        <Grape />
+      </aside>
+    </div>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

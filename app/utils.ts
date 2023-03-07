@@ -1,4 +1,5 @@
 import { useMatches } from "@remix-run/react";
+import { JSDOM } from 'jsdom';
 import DOMPurify from "dompurify";
 import { marked } from "marked";
 import { useMemo } from "react";
@@ -87,5 +88,9 @@ export function buildLinkPath(category: string, slug: string): string {
 }
 
 export function parseContent(content: string) {
-  return DOMPurify.sanitize(marked.parse(content));
+  const window = new JSDOM('').window;
+  // @ts-ignore
+  const purify = DOMPurify(window);
+  const clean = purify.sanitize(marked(content));
+  return clean;
 }
