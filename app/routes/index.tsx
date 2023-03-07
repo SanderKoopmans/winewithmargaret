@@ -37,10 +37,6 @@ export async function loader() {
 
 export default function Index() {
   const articles = useLoaderData();
-  console.log("🚀 ~ file: index.tsx:40 ~ Index ~ articles:", articles[0].attributes.thumbnail.data.attributes.url)
-  // console.log("🚀 ~ file: index.tsx:30 ~ Index ~ articles:", articles[0].attributes.thumbnail.data[0].attributes)
-  // console.log(''.padEnd(80, '*'))
-  // console.log("🚀 ~ file: index.tsx:30 ~ Index ~ articles:", articles[0].attributes.thumbnail.data[0])
 
   useEffect(() => {
     window.addEventListener("load", resize);
