@@ -35,6 +35,7 @@
     "@types/dompurify": "^2.4.0",
     "@types/marked": "^4.0.8",
     "bcryptjs": "2.4.3",
+    "clsx": "^1.2.1",
     "cuid": "^2.1.8",
     "dompurify": "^3.0.1",
     "isbot": "^3.6.5",

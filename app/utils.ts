@@ -34,7 +34,7 @@ export function safeRedirect(
  * @returns string
  */
 export function buildLinkPath(category: string, slug: string): string {
-  if (category === "recipe") {
+  if (category === "Recipe") {
     return `/recipe/${slug}`;
   }
   return `/article/${slug}`;

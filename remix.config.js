@@ -4,6 +4,9 @@ const path = require("path");
  * @type {import('@remix-run/dev').AppConfig}
  */
 module.exports = {
+  future: {
+    unstable_tailwind: true,
+  },
   appDirectory: "app",
   cacheDirectory: "./node_modules/.cache/remix",
   assetsBuildDirectory: "public/build",
