@@ -2,37 +2,38 @@ import { useLoaderData } from "@remix-run/react";
 import { checkEnvVars, checkStatus } from "~/utils/errorHandling";
 import { useEffect } from "react";
 import { Articles } from "~/components/articles/Articles";
-import qs from 'qs';
+import qs from "qs";
 
-const query = qs.stringify(
-  {
-    populate: {
-      category: { populate: ['name']},
-      thumbnail: { fields: ['url']},
-    },
+const query = qs.stringify({
+  populate: {
+    category: { populate: ["name"] },
+    thumbnail: { fields: ["url"] },
   },
-)
+});
 
 export async function loader() {
   checkEnvVars();
 
-  const response = await fetch(`${process.env.STRAPI_URL_BASE}/api/articles?${query}`,{
-      method:"GET",
-      headers:{
-        "Authorization":`Bearer ${process.env.STRAPI_API_TOKEN}`,
-        "Content-Type":"application/json"
-      }
-    });
-
-    checkStatus(response);
-
-    const data = await response.json();
-
-    if (data.error) {
-      throw new Response("Error loading data from strapi", { status: 500});
+  const response = await fetch(
+    `${process.env.STRAPI_URL_BASE}/api/articles?${query}`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
+        "Content-Type": "application/json",
+      },
     }
+  );
 
-    return data.data;
+  checkStatus(response);
+
+  const data = await response.json();
+
+  if (data.error) {
+    throw new Response("Error loading data from strapi", { status: 500 });
+  }
+
+  return data.data;
 }
 
 export default function Index() {
@@ -65,8 +66,11 @@ export default function Index() {
   }, []);
 
   return (
-        <div id="masonry" className="wrapper grid gap-2.5 grid-cols-masonry auto-rows-[20px] max-w-[1280px] w-full h-full">
-          <Articles articles={articles} />
-        </div>
+    <div
+      id="masonry"
+      className="grid h-full w-full max-w-[1280px] auto-rows-[20px] grid-cols-masonry gap-2.5"
+    >
+      <Articles articles={articles} />
+    </div>
   );
 }

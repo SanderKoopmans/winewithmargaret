@@ -4,6 +4,7 @@ import {
   LiveReload,
   Meta,
   Scripts,
+  Outlet,
   ScrollRestoration,
 } from "@remix-run/react";
 import { Grape, Instagram, Mail, Search } from "lucide-react";
@@ -46,20 +47,20 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
-        <div className="page-wrapper grid h-full grid-cols-main grid-rows-main">
+        <div className="grid h-full grid-cols-small grid-rows-small lg:grid-cols-main lg:grid-rows-main">
           <Header />
-          <aside className="col-span-1 row-span-1 border-l-2 border-l-gray-300 px-2 pt-8">
+          {/* <aside className="col-span-1 row-span-1 border-l-2 border-l-gray-300 px-2 pt-8">
             <div className="flex h-full flex-col items-center gap-2 border-b-2 border-b-gray-300">
               <Instagram />
               <Mail />
               <Search />
             </div>
-          </aside>
-          <main className="col-span-1 row-start-2 row-end-2 flex h-full flex-col items-center justify-start">
+          </aside> */}
+          <main className="row-span-3 flex h-full flex-col items-center justify-start lg:col-span-1 lg:row-span-2">
             <Navigation />
-            {/* <Outlet /> */}
+            <Outlet />
           </main>
-          <aside className="col-start-2 col-end-2 row-start-2 row-end-2 flex flex-col items-center border-l-2 border-l-gray-300 px-2 pt-6">
+          <aside className="hidden lg:col-start-2 lg:col-end-2 lg:row-start-2 lg:row-end-2 lg:flex lg:flex-col lg:items-center lg:border-l-2 lg:border-l-gray-300 lg:px-2 lg:pt-6">
             <Grape />
           </aside>
         </div>
