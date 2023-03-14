@@ -16,17 +16,17 @@ type TitleProps = {
 );
 
 const fontSize = {
-  h1: "text-8xl",
-  h2: "text-6xl",
-  h3: "text-4xl font-medium",
-  h4: "text-2xl font-medium",
-  h5: "text-xl font-medium",
-  h6: "text-lg font-medium",
+  h1: "text-6xl lg:text-8xl",
+  h2: "text-4xl lg:text-6xl",
+  h3: "text-2xl lg:text-4xl font-medium",
+  h4: "text-xl lg:text-2xl font-medium",
+  h5: "text-lg lg:text-xl font-medium",
+  h6: "lg:text-lg font-medium"
 };
 
 const titleColors = {
   primary: "text-primary",
-  secondary: "text-gray-400",
+  secondary: "text-gray-400"
 };
 
 function Title({
@@ -87,7 +87,7 @@ function Paragraph({
 }: ParagraphProps) {
   return React.createElement(as, {
     className: clsx("max-w-full text-lg", textColorClassName, className),
-    ...rest,
+    ...rest
   });
 }
 

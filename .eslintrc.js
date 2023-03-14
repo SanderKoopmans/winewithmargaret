@@ -4,10 +4,10 @@ module.exports = {
     "@remix-run/eslint-config",
     "@remix-run/eslint-config/node",
     "@remix-run/eslint-config/jest-testing-library",
-    "prettier",
+    "prettier"
   ],
   env: {
-    "cypress/globals": true,
+    "cypress/globals": true
   },
   plugins: ["cypress"],
   // we're using vitest which has a very similar API to jest
@@ -15,11 +15,13 @@ module.exports = {
   // set the jest version.
   settings: {
     jest: {
-      version: 28,
-    },
+      version: 28
+    }
   },
   rules: {
-    'semi-style': ['error', 'last'],
-    'indent': ['error', 2],
-  },
+    "semi-style": ["error", "last"],
+    "indent": ["error", 2],
+    "quotes": ["error", "double", { "avoidEscape": true }],
+    "eol-last": ["error", "always"]
+  }
 };

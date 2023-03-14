@@ -69,7 +69,6 @@ export default function Recipe() {
                 <H2>
                   {title}
                 </H2>
-                {/* <h3 className="sub-title">Subtitle of this amazing dish goes below the title</h3> */}
                 <div className="flex mt-16">
                   <div className="flex flex-col gap-2 justify-center items-start border-r border-r-black py-2 px-4">
                     <Paragraph className="">Serves:</Paragraph>
