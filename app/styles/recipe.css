@@ -7,3 +7,17 @@ li {
     list-style-type: disc;
     margin-bottom: 5px;
 }
+
+.content * li {
+    list-style-type: none;
+}
+
+.content * li::before {
+    content: "\2022";
+    color: #60435F;
+    font-weight: bold;
+    font-size: x-large;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
