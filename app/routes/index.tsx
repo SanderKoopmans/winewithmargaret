@@ -39,6 +39,7 @@ export async function loader() {
 export default function Index() {
   const articles = useLoaderData();
 
+  /** This should move to render on client-side, won't recalculate rows */
   useEffect(() => {
     window.addEventListener("load", resize);
     window.addEventListener("resize", resize);
@@ -68,7 +69,7 @@ export default function Index() {
   return (
     <div
       id="masonry"
-      className="grid h-full w-full max-w-[1280px] auto-rows-[20px] grid-cols-masonry gap-2.5"
+      className="grid h-full max-w-[1280px] auto-rows-[20px] grid-cols-masonry gap-2.5 px-4"
     >
       <Articles articles={articles} />
     </div>

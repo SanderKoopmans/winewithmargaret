@@ -9,7 +9,7 @@ module.exports = {
       gridTemplateColumns: {
         "small": "auto",
         "main": "1fr, 50px",
-        "masonry": "repeat(auto-fill, minmax(250px,1fr))",
+        "masonry": "repeat(auto-fit, minmax(250px,1fr))",
       },
       gridTemplateRows: {
         "small": "min-content",

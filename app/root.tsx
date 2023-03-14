@@ -56,7 +56,7 @@ export default function App() {
               <Search />
             </div>
           </aside> */}
-          <main className="row-span-3 flex h-full flex-col items-center justify-start lg:col-span-1 lg:row-span-2">
+          <main className="col-span-1 row-span-2 flex h-full flex-col items-center justify-start">
             <Navigation />
             <Outlet />
           </main>
