@@ -18,4 +18,8 @@ module.exports = {
       version: 28,
     },
   },
+  rules: {
+    'semi-style': ['error', 'last'],
+    'indent': ['error', 2],
+  },
 };
