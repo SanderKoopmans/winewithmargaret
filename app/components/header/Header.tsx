@@ -18,11 +18,13 @@ export default function Header() {
       </aside>
       <header className="row-span-2 pt-8 lg:col-span-1 lg:row-span-1">
         <div className="flex flex-col items-center">
-          <H1>Wine.with.Margaret</H1>
-          <div className="flex items-center py-5">
-            <div className="flex-grow border-t-2 border-gray-300"></div>
-            <H3 className="mx-8 flex-shrink">Subtitle goes in this place</H3>
-            <div className="flex-grow border-t-2 border-gray-300"></div>
+          <div>
+            <H1>Wine.with.Margaret</H1>
+            <div className="flex items-center justify-center py-5">
+              <div className="hidden flex-grow border-t-2 border-gray-300 lg:block"></div>
+              <H3 className="mx-8 flex-shrink">Subtitle goes in this place</H3>
+              <div className="hidden flex-grow border-t-2 border-gray-300 lg:block"></div>
+            </div>
           </div>
         </div>
       </header>
