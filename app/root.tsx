@@ -47,16 +47,9 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
-        <div className="grid h-full grid-cols-small grid-rows-small lg:grid-cols-main lg:grid-rows-main">
+        <div className="grid h-full grid-cols-small grid-rows-small justify-items-center lg:grid-cols-main lg:grid-rows-main">
           <Header />
-          {/* <aside className="col-span-1 row-span-1 border-l-2 border-l-gray-300 px-2 pt-8">
-            <div className="flex h-full flex-col items-center gap-2 border-b-2 border-b-gray-300">
-              <Instagram />
-              <Mail />
-              <Search />
-            </div>
-          </aside> */}
-          <main className="col-span-1 row-span-2 flex h-full flex-col items-center justify-start">
+          <main className="col-span-2 row-span-2 flex h-full w-11/12 flex-col sm:w-10/12 md:w-5/6 lg:w-9/12">
             <Navigation />
             <Outlet />
           </main>

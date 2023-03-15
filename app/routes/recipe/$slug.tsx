@@ -112,12 +112,12 @@ export default function Recipe() {
       </div>
       <div className="content flex gap-6 p-6">
         <div className="recipe-side w-1/3">
-          <H3 className="mb-4">Tools:</H3>
+          <H3 className="mb-8">Tools:</H3>
           <div
-            className="mb-4 capitalize"
+            className="mb-16 capitalize"
             dangerouslySetInnerHTML={{ __html: parseContent(tools) }}
           />
-          <H3 className="mb-4">Ingredients:</H3>
+          <H3 className="mb-8">Ingredients:</H3>
           <div
             className="mb-4 capitalize"
             dangerouslySetInnerHTML={{ __html: parseContent(ingredients) }}
@@ -125,10 +125,10 @@ export default function Recipe() {
         </div>
         <div className="recipe-details w-2/3">
           <div
-            className="mb-4"
+            className="mb-16 first-letter:float-left first-letter:text-6xl first-letter:font-bold first-letter:text-[#60435F]"
             dangerouslySetInnerHTML={{ __html: parseContent(summary) }}
           />
-          <H3 className="mb-4">Method:</H3>
+          <H3 className="mb-8">Method:</H3>
           <div dangerouslySetInnerHTML={{ __html: parseContent(content) }} />
         </div>
       </div>
