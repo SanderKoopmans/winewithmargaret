@@ -3,11 +3,6 @@ img {
     width: 50%;
 }
 
-li {
-    list-style-type: disc;
-    margin-bottom: 5px;
-}
-
 .content * li {
     list-style-type: none;
 }
