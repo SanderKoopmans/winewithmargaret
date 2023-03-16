@@ -49,12 +49,14 @@ export default function App() {
       <body className="h-full">
         <div className="grid h-full grid-cols-small grid-rows-small justify-items-center lg:grid-cols-main lg:grid-rows-main">
           <Header />
-          <main className="col-span-2 row-span-2 flex h-full w-11/12 flex-col sm:w-10/12 md:w-5/6 lg:w-9/12">
+          <main className="col-start-1 col-end-1 row-span-2 flex h-full w-[95%] max-w-7xl flex-col xl:w-11/12 2xl:w-10/12">
             <Navigation />
             <Outlet />
           </main>
-          <aside className="hidden lg:col-start-2 lg:col-end-2 lg:row-start-2 lg:row-end-2 lg:flex lg:flex-col lg:items-center lg:border-l-2 lg:border-l-gray-300 lg:px-2 lg:pt-6">
-            <Grape />
+          <aside className="hidden w-full lg:col-start-2 lg:col-end-2 lg:row-span-2 lg:flex lg:h-full lg:flex-col lg:items-center lg:border-l-2 lg:border-l-gray-300 lg:px-2 lg:pt-6">
+            <div className="flex-grow">
+              <Grape />
+            </div>
           </aside>
         </div>
         <ScrollRestoration />

@@ -78,40 +78,46 @@ export default function Recipe() {
   /** Add toggle to leave screen on -- check Web API */
 
   return (
-    <div className="flex flex-col gap-6 px-4 pt-8">
-      <div className="relative mt-[120px] h-[700px] w-full">
-        <div className="h-full w-7/12 bg-red-100">
-          <div className="absolute left-[24px] flex h-full w-[40%] flex-col justify-center gap-4">
-            <Paragraph className="pl-1">Category</Paragraph>
-            <H2>{title}</H2>
-            <div className="mt-16 flex">
-              <div className="flex flex-col items-start justify-center gap-2 border-r border-r-black py-2 px-4">
-                <Paragraph className="">Serves:</Paragraph>
-                <span className="flex gap-4">
-                  <Users />
-                  {servings}
-                </span>
-              </div>
-              <div className="flex flex-col items-start justify-center gap-2 py-2 px-4">
-                <Paragraph className="">Time:</Paragraph>
-                <span className="flex gap-4">
-                  <Clock />
-                  {time}
-                </span>
+    <>
+      <div className="flex flex-col gap-6 px-4 pt-8 pb-28 md:pb-0">
+        <div className="relative w-full md:mt-[120px] md:h-[700px]">
+          <div className="bg-red-100 md:h-full md:w-7/12">
+            <div className="flex flex-col gap-4 p-6 md:absolute md:left-[24px] md:h-full md:w-[40%] md:justify-center">
+              <Paragraph className="pl-1">Category</Paragraph>
+              <H2>{title}</H2>
+              <div className="mt-16 flex">
+                <div className="flex flex-col items-start justify-center gap-2 border-r border-r-black py-2 px-4">
+                  <Paragraph className="">Serves:</Paragraph>
+                  <span className="flex gap-4">
+                    <Users />
+                    {servings}
+                  </span>
+                </div>
+                <div className="flex flex-col items-start justify-center gap-2 py-2 px-4">
+                  <Paragraph className="">Time:</Paragraph>
+                  <span className="flex gap-4">
+                    <Clock />
+                    {time}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="absolute top-[-120px] right-0 h-full w-1/2">
-          <img
-            src={`${process.env.STRAPI_URL_BASE}${url}`}
-            alt={title}
-            className="h-3/4 w-full"
-          />
+          <div className="relative mt-[-60px] mr-[-24px] mb-[36px] ml-auto h-full w-1/2 md:absolute md:right-0 md:top-[-120px] md:mt-0 md:mb-0 md:mr-0">
+            <img
+              src={`${process.env.STRAPI_URL_BASE}${url}`}
+              alt={title}
+              className="h-3/4 w-full"
+            />
+          </div>
         </div>
       </div>
-      <div className="content flex gap-6 p-6">
-        <div className="recipe-side w-1/3">
+      <div className="content flex flex-col gap-6 p-6 md:flex-row">
+        <div
+          className="mb-16 first-letter:float-left first-letter:text-6xl first-letter:font-bold first-letter:text-[#60435F] md:hidden"
+          dangerouslySetInnerHTML={{ __html: parseContent(summary) }}
+        />
+        <div className="recipe-side md:w-1/3">
           <H3 className="mb-8">Tools:</H3>
           <div
             className="mb-16 capitalize"
@@ -123,15 +129,15 @@ export default function Recipe() {
             dangerouslySetInnerHTML={{ __html: parseContent(ingredients) }}
           />
         </div>
-        <div className="recipe-details w-2/3">
+        <div className="recipe-details md:w-2/3">
           <div
-            className="mb-16 first-letter:float-left first-letter:text-6xl first-letter:font-bold first-letter:text-[#60435F]"
+            className="mb-16 hidden first-letter:float-left first-letter:text-6xl first-letter:font-bold first-letter:text-[#60435F] md:block"
             dangerouslySetInnerHTML={{ __html: parseContent(summary) }}
           />
           <H3 className="mb-8">Method:</H3>
           <div dangerouslySetInnerHTML={{ __html: parseContent(content) }} />
         </div>
       </div>
-    </div>
+    </>
   );
 }

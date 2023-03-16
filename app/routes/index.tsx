@@ -69,7 +69,7 @@ export default function Index() {
   return (
     <div
       id="masonry"
-      className="grid h-full max-w-[1280px] auto-rows-[20px] grid-cols-masonry gap-2.5 px-4"
+      className="grid h-full max-w-[1280px] flex-grow auto-rows-[20px] grid-cols-masonry gap-2.5 px-4"
     >
       <Articles articles={articles} />
     </div>
