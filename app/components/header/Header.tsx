@@ -16,7 +16,7 @@ export default function Header() {
           </div>
         </div>
       </aside>
-      <header className="pt-8 lg:col-span-1 lg:row-span-1">
+      <header className="row-start-2 row-end-3 pt-8 lg:row-start-1 lg:row-end-2">
         <div className="flex flex-col items-center">
           <div>
             <H1>Wine.with.Margaret</H1>

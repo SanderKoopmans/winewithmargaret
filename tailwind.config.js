@@ -12,8 +12,8 @@ module.exports = {
         "masonry": "repeat(auto-fit, minmax(250px,1fr))",
       },
       gridTemplateRows: {
-        "small": "min-content",
-        "main": "min-content, 1fr",
+        "small": "50px, 1fr, 3fr, 1fr",
+        "main": "1fr, 4fr, 1fr",
       },
       colors: {
         "main": "#E9CFC1",

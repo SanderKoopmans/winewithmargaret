@@ -49,7 +49,7 @@ export default function App() {
       <body className="h-full">
         <div className="grid h-full grid-cols-small grid-rows-small justify-items-center lg:grid-cols-main lg:grid-rows-main">
           <Header />
-          <main className="col-start-1 col-end-1 row-span-2 flex h-full w-[95%] max-w-7xl flex-col xl:w-11/12 2xl:w-10/12">
+          <main className="col-start-1 col-end-1 row-start-3 row-end-4 flex h-full w-[95%] max-w-7xl flex-col lg:row-start-2 lg:row-end-2 xl:w-11/12 2xl:w-10/12">
             <Navigation />
             <Outlet />
           </main>
@@ -58,6 +58,9 @@ export default function App() {
               <Grape />
             </div>
           </aside>
+          <footer className="col-start-1 col-end-3 row-span-3 h-[100px] w-full bg-black text-white">
+            Footer content
+          </footer>
         </div>
         <ScrollRestoration />
         <Scripts />
