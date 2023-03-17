@@ -10,6 +10,7 @@ import {
 import { Grape, Instagram, Mail, Search } from "lucide-react";
 import Header from "~/components/header/Header";
 import { Navigation } from "~/components/navigation/Navigation";
+import { Footer } from "./components/footer/footer";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import customStyles from "./styles/winewithmargaret.css";
@@ -53,14 +54,12 @@ export default function App() {
             <Navigation />
             <Outlet />
           </main>
-          <aside className="hidden w-full lg:col-start-2 lg:col-end-2 lg:row-span-2 lg:flex lg:h-full lg:flex-col lg:items-center lg:border-l-2 lg:border-l-gray-300 lg:px-2 lg:pt-6">
+          <aside className="hidden w-full lg:col-start-2 lg:col-end-2 lg:row-start-2 lg:row-end-3 lg:flex lg:h-full lg:flex-col lg:items-center lg:border-l-2 lg:border-l-gray-300 lg:px-2 lg:pt-6">
             <div className="flex-grow">
               <Grape />
             </div>
           </aside>
-          <footer className="col-start-1 col-end-3 row-span-3 h-[100px] w-full bg-black text-white">
-            Footer content
-          </footer>
+          <Footer />
         </div>
         <ScrollRestoration />
         <Scripts />

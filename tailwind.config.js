@@ -10,10 +10,14 @@ module.exports = {
         "small": "auto",
         "main": "1fr, 50px",
         "masonry": "repeat(auto-fit, minmax(250px,1fr))",
+        "footer-main": "repeat(12, 1fr)",
+        "footer-links": "repeat(2, 1fr)",
+        "footer-links-lg": "repeat(6, 1fr)",
       },
       gridTemplateRows: {
         "small": "50px, 1fr, 3fr, 1fr",
         "main": "1fr, 4fr, 1fr",
+        "footer-main": "repeat(2, min-content)",
       },
       colors: {
         "main": "#E9CFC1",
