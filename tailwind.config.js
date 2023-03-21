@@ -16,7 +16,7 @@ module.exports = {
       },
       gridTemplateRows: {
         "small": "50px, 1fr, 3fr, 1fr",
-        "main": "1fr, 4fr, 1fr",
+        "main": "1fr 4fr 1fr",
         "footer-main": "repeat(2, min-content)",
       },
       colors: {
