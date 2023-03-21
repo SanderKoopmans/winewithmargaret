@@ -10,7 +10,12 @@ export default function Header() {
             <Menu />
           </div>
           <div className="flex gap-2 lg:h-full lg:flex-col lg:border-b-2 lg:border-b-gray-300">
-            <Instagram />
+            <a
+              href="https://www.instagram.com/wine.with.margaret/"
+              className="hover:cursor-pointer"
+            >
+              <Instagram />
+            </a>
             <Mail />
             <Search />
           </div>

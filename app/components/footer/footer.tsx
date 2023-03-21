@@ -2,7 +2,7 @@ import { Facebook, Instagram, Twitter } from "lucide-react";
 import { H3, H4, Paragraph } from "../typography/Typography";
 
 export const Footer = () => (
-  <footer className="col-start-1 col-end-3 w-full bg-black pt-20 pb-10 text-white lg:row-start-3">
+  <footer className="col-span-1 w-full bg-black pt-20 pb-10 text-white lg:col-start-1 lg:col-end-3 lg:row-start-3">
     <div className="footer-wrapper mx-auto px-6 lg:grid lg:max-w-7xl lg:grid-cols-footer-main lg:grid-rows-footer-main lg:gap-y-20">
       <div className="lg:col-start-1 lg:col-end-7 lg:grid lg:grid-cols-footer-links-lg">
         <H3 className="mb-10 uppercase text-white lg:col-start-1 lg:col-end-3">
@@ -48,7 +48,12 @@ export const Footer = () => (
         </form>
       </div>
       <div className="socials mb-10 flex gap-4 lg:row-start-2 lg:row-end-3">
-        <Instagram />
+        <a
+          href="https://www.instagram.com/wine.with.margaret/"
+          className="hover:cursor-pointer"
+        >
+          <Instagram />
+        </a>
         <Facebook />
         <Twitter />
       </div>
