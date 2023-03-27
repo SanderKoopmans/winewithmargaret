@@ -1,13 +1,18 @@
 import { useLoaderData } from "@remix-run/react";
+import qs from "qs";
 import { checkEnvVars, checkStatus } from "~/utils/errorHandling";
 import { parseContent } from "~/utils";
 import { Blocks } from "~/components/blocks/Blocks";
+
+const query = qs.stringify({
+  populate: ["content", "content.image"],
+});
 
 export async function loader() {
   checkEnvVars();
 
   const response = await fetch(
-    `${process.env.STRAPI_URL_BASE}/api/blogs/3?populate=*`,
+    `${process.env.STRAPI_URL_BASE}/api/about?${query}`,
     {
       method: "GET",
       headers: {
@@ -20,7 +25,6 @@ export async function loader() {
   checkStatus(response);
 
   const data = await response.json();
-  console.log("🚀 ~ file: about.tsx:22 ~ loader ~ data:", data);
 
   if (data.error) {
     throw new Response("Error loading data from strapi", { status: 500 });
@@ -31,11 +35,12 @@ export async function loader() {
 
 export default function Index() {
   const about = useLoaderData();
+  console.log("🚀 ~ file: about.tsx:44 ~ Index ~ about:", about);
 
   return (
     <>
       <p>About page</p>
-      <Blocks />
+      <Blocks blocks={about?.attributes?.content} />
     </>
     // <div
     //   className="mb-16 hidden first-letter:float-left first-letter:text-6xl first-letter:font-bold first-letter:text-[#60435F] md:block"

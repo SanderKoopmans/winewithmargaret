@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { allBlocks } from "~/blocks";
 
 /**
@@ -5,12 +6,35 @@ import { allBlocks } from "~/blocks";
  *
  * @returns Component
  */
-export const Blocks = () => {
-  const componentNames = Object.keys(allBlocks);
-  console.log(
-    "🚀 ~ file: Blocks.tsx:5 ~ Blocks ~ componentNames:",
-    componentNames
-  );
+export const Blocks = ({ blocks }) => {
+  console.log("🚀 ~ file: Blocks.tsx:10 ~ Blocks ~ blocks:", blocks);
+  if (!blocks?.length) {
+    return null;
+  }
+  return blocks.map((block, index) => {
+    const blockType = block.__component ?? block.type;
+    const blockKey = `${block.id}-${blockType}`;
+    const blockData = block.__component
+      ? block
+      : {
+          ...block.data,
+          __component: blockType,
+          id: block.id,
+        };
 
-  return <p>Block component!</p>;
+    const blockProps = {
+      key: blockKey,
+      blockIndex: index,
+      data: blockData,
+    };
+
+    const Block = allBlocks[blockType];
+
+    if (!Block) {
+      console.warn(`Block type ${blockType} is not defined.`, block);
+    }
+
+    // return <p>Block placeholder</p>;
+    return <Block {...blockProps} />;
+  });
 };

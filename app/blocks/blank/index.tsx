@@ -5,4 +5,8 @@
  * @returns Component, various typography components
  */
 
-export const Blank = () => <p>Blank component!</p>;
+export const Blank = (block) => {
+  console.log("🚀 ~ file: index.tsx:9 ~ Blank ~ block:", block);
+
+  return <p>Blank component!</p>;
+};
