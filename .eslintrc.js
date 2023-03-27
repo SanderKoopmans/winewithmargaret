@@ -20,8 +20,8 @@ module.exports = {
   },
   rules: {
     "semi-style": ["error", "last"],
-    "indent": ["error", 2],
+    "indent": [2, 2, { SwitchCase: 1 }],
     "quotes": ["error", "double", { "avoidEscape": true }],
     "eol-last": ["error", "always"]
-  }
+  },
 };

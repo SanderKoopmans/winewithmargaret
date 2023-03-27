@@ -6,14 +6,17 @@ import {
   Scripts,
   Outlet,
   ScrollRestoration,
+  useLoaderData,
 } from "@remix-run/react";
 import { Grape, Instagram, Mail, Search } from "lucide-react";
 import Header from "~/components/header/Header";
 import { Navigation } from "~/components/navigation/Navigation";
 import { Footer } from "./components/footer/footer";
+import { variables } from "./config/variables";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import customStyles from "./styles/winewithmargaret.css";
+import { checkEnvVars, checkStatus } from "./utils/errorHandling";
 
 export const links: LinksFunction = () => {
   return [
@@ -40,7 +43,31 @@ export const meta: MetaFunction = () => ({
   viewport: "width=device-width,initial-scale=1",
 });
 
+export async function loader() {
+  checkEnvVars();
+
+  const response = await fetch(`${variables.API_URL}/api/page-title`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
+      "Content-Type": "application/json",
+    },
+  });
+
+  checkStatus(response);
+
+  const data = await response.json();
+
+  if (data.error) {
+    throw new Response("Error loading data from strapi", { status: 500 });
+  }
+
+  console.log("data:", data.data);
+  return data.data;
+}
+
 export default function App() {
+  const pageTitles = useLoaderData();
   return (
     <html lang="en" className="h-full">
       <head>
@@ -49,7 +76,7 @@ export default function App() {
       </head>
       <body className="h-full">
         <div className="grid h-full grid-cols-small grid-rows-small justify-items-center lg:grid-cols-main lg:grid-rows-main">
-          <Header />
+          <Header titles={pageTitles} />
           <main className="col-start-1 col-end-1 row-start-3 row-end-4 flex h-full w-[95%] max-w-7xl flex-col lg:row-start-2 lg:row-end-2 xl:w-11/12 2xl:w-10/12">
             <Navigation />
             <Outlet />
