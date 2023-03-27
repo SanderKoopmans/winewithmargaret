@@ -37,12 +37,7 @@ export default function Index() {
 
   return (
     <>
-      <p>About page</p>
       <Blocks blocks={about?.attributes?.content} />
     </>
-    // <div
-    //   className="mb-16 hidden first-letter:float-left first-letter:text-6xl first-letter:font-bold first-letter:text-[#60435F] md:block"
-    //   dangerouslySetInnerHTML={{ __html: parseContent(about) }}
-    // />
   );
 }
