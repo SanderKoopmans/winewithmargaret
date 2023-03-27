@@ -106,7 +106,7 @@ export default function Recipe() {
           </div>
           <div className="relative mt-[-60px] mr-[-24px] mb-[36px] ml-auto h-full w-1/2 md:absolute md:right-0 md:top-[-120px] md:mt-0 md:mb-0 md:mr-0">
             <img
-              src={`${process.env.STRAPI_URL_BASE}${url}`}
+              src={`${variables.API_URL}${url}`}
               alt={title}
               className="h-3/4 w-full"
             />

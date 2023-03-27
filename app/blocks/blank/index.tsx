@@ -1,3 +1,5 @@
+import { OrderedList, UnOrderedList } from "~/components/list/List";
+import { Quote } from "~/components/quote/Quote";
 import {
   H1,
   H2,
@@ -35,12 +37,17 @@ const renderHeaderType = (header) => {
   }
 };
 
+const renderListType = (list) => {
+  switch (list.data.style) {
+    case "unordered":
+      return <UnOrderedList listItems={list.data.items} />;
+    default:
+      return <OrderedList listItems={list.data.items} />;
+  }
+};
+
 export const Blank = (block) => {
   const parsedContent = JSON.parse(block.data.content);
-  console.log(
-    "🚀 ~ file: index.tsx:12 ~ Blank ~ parsedContent:",
-    parsedContent
-  );
 
   /**
    * Map over block content
@@ -48,14 +55,18 @@ export const Blank = (block) => {
    *
    * Return array of Typography components to render
    */
-  return parsedContent.blocks.map((block, index) => {
+  return parsedContent.blocks.map((block) => {
     switch (block.type) {
       case "header":
         return renderHeaderType(block);
+      case "list":
+        return renderListType(block);
+      case "quote":
+        return <Quote content={block.data} />;
       default:
         return (
           <Paragraph
-            className="mb-4"
+            className="mb-4 [&>a]:text-blue-500 [&>a]:underline [&>mark]:my-0.5 [&>mark]:rounded-sm [&>mark]:bg-[#A8575B] [&>mark]:px-1 [&>mark]:text-white"
             dangerouslySetInnerHTML={{ __html: block.data.text }}
           />
         );
