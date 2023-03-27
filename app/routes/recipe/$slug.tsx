@@ -8,6 +8,7 @@ import qs from "qs";
 import recipeStyles from "../../styles/recipe.css";
 import { Clock, Users } from "lucide-react";
 import { H2, H3, Paragraph } from "~/components/typography/Typography";
+import { variables } from "~/config/variables";
 
 const query = qs.stringify({
   populate: {
@@ -23,7 +24,7 @@ export async function loader({ params }: DataFunctionArgs) {
   checkEnvVars();
 
   const response = await fetch(
-    `${process.env.STRAPI_URL_BASE}/api/articles/find-by-slug/${params.slug}?${query}`,
+    `${variables.API_URL}/api/articles/find-by-slug/${params.slug}?${query}`,
     {
       method: "GET",
       headers: {

@@ -1,5 +1,12 @@
-export const Hero = (block) => {
-  console.log("🚀 ~ file: index.tsx:2 ~ Hero ~ block:", block);
+import { H1 } from "~/components/typography/Typography";
+import { variables } from "~/config/variables";
 
-  return <p>Hero section!</p>;
-};
+export const Hero = ({ data: { title, image } }) => (
+  <>
+    <img
+      src={`${variables.API_URL}${image.data.attributes.url}`}
+      alt="alt-here"
+    />
+    <H1>{title}</H1>
+  </>
+);

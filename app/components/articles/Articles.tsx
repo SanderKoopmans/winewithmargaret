@@ -1,4 +1,5 @@
 import { Link } from "@remix-run/react";
+import { variables } from "~/config/variables";
 import { buildLinkPath } from "~/utils";
 
 /**
@@ -7,33 +8,57 @@ import { buildLinkPath } from "~/utils";
  */
 
 export const Articles = ({ articles }: any) => {
-      return (
+  return (
     <>
-        {articles.length > 0 && articles.map(({
-          id: articleId,
-          attributes: {
-            title, publishedAt, excerpt, thumbnail: {
-              data: { attributes: { url }}
-            }, slug,
-            category: {
-              data: {
-                attributes: {
-                  name: categoryName }}}}}) => (
+      {articles.length > 0 &&
+        articles.map(
+          ({
+            id: articleId,
+            attributes: {
+              title,
+              publishedAt,
+              excerpt,
+              thumbnail: {
+                data: {
+                  attributes: { url },
+                },
+              },
+              slug,
+              category: {
+                data: {
+                  attributes: { name: categoryName },
+                },
+              },
+            },
+          }) => (
             <Link
-                to={buildLinkPath(categoryName, slug)}
-                className="item transition duration-300 p-2 hover:shadow-2xl hover:scale-[1.02] hover:cursor-pointer"
-                key={publishedAt}
+              to={buildLinkPath(categoryName, slug)}
+              className="item p-2 transition duration-300 hover:scale-[1.02] hover:cursor-pointer hover:shadow-2xl"
+              key={publishedAt}
             >
               <div className="article">
-                <h3 className="text-4xl mb-4">{title}</h3>
-                <img src={`${process.env.STRAPI_URL_BASE}${url}`} alt={title} className="mb-6" />
+                <h3 className="mb-4 text-4xl">{title}</h3>
+                <img
+                  src={`${variables.API_URL}${url}`}
+                  alt={title}
+                  className="mb-6"
+                />
                 <p className="mb-6">{excerpt}</p>
-                <div className="flex py-2 items-center">
-                  <p className="capitalize italic text-sm">{new Date(publishedAt).toLocaleString('default', { day: 'numeric', month: 'long', year: 'numeric' })} / {categoryName}</p>
-                  <div className="flex-grow border-t-2 border-gray-300 ml-2"></div>
+                <div className="flex items-center py-2">
+                  <p className="text-sm capitalize italic">
+                    {new Date(publishedAt).toLocaleString("default", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}{" "}
+                    / {categoryName}
+                  </p>
+                  <div className="ml-2 flex-grow border-t-2 border-gray-300"></div>
                 </div>
               </div>
             </Link>
-          ))}
+          )
+        )}
     </>
-)};
+  );
+};

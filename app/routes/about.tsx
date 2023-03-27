@@ -3,6 +3,7 @@ import qs from "qs";
 import { checkEnvVars, checkStatus } from "~/utils/errorHandling";
 import { parseContent } from "~/utils";
 import { Blocks } from "~/components/blocks/Blocks";
+import { variables } from "~/config/variables";
 
 const query = qs.stringify({
   populate: ["content", "content.image"],
@@ -11,16 +12,13 @@ const query = qs.stringify({
 export async function loader() {
   checkEnvVars();
 
-  const response = await fetch(
-    `${process.env.STRAPI_URL_BASE}/api/about?${query}`,
-    {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  const response = await fetch(`${variables.API_URL}/api/about?${query}`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
+      "Content-Type": "application/json",
+    },
+  });
 
   checkStatus(response);
 

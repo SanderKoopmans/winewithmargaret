@@ -3,6 +3,7 @@ import { checkEnvVars, checkStatus } from "~/utils/errorHandling";
 import qs from "qs";
 import { ClientOnly } from "~/components/client-only/ClientOnly";
 import { ArticleGrid } from "~/components/articleGrid/ArticleGrid";
+import { variables } from "~/config/variables";
 
 const query = qs.stringify({
   populate: {
@@ -14,16 +15,13 @@ const query = qs.stringify({
 export async function loader() {
   checkEnvVars();
 
-  const response = await fetch(
-    `${process.env.STRAPI_URL_BASE}/api/articles?${query}`,
-    {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  const response = await fetch(`${variables.API_URL}/api/articles?${query}`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
+      "Content-Type": "application/json",
+    },
+  });
 
   checkStatus(response);
 
