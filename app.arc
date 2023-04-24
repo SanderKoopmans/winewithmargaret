@@ -1,9 +1,7 @@
 @app
-frontend-5aff
+wwm-frontend
 
 @http
 /*
   method any
   src server
-
-@static
