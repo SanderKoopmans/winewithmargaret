@@ -8,3 +8,5 @@ region eu-west-1
 /*
   method any
   src server
+
+@static
