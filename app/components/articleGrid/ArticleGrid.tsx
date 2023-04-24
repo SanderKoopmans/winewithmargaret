@@ -30,8 +30,6 @@ export const ArticleGrid = ({ articles }: any) => {
       return parseInt(window.getComputedStyle(element).getPropertyValue(style));
     }
   }, []);
-  console.log("ArticleGrid");
-  console.log("".padEnd(80, "+"));
 
   return (
     <div
