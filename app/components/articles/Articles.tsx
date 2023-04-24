@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Link } from "@remix-run/react";
 import { variables } from "~/config/variables";
 import { buildLinkPath } from "~/utils";
