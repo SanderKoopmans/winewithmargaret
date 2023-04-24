@@ -15,7 +15,7 @@ const query = qs.stringify({
 export async function loader() {
   checkEnvVars();
 
-  const response = await fetch(`${variables.API_URL}/api/articles?${query}`, {
+  const response = await fetch(`${variables.API_URL}/api/posts?${query}`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,

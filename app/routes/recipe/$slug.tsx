@@ -24,7 +24,7 @@ export async function loader({ params }: DataFunctionArgs) {
   checkEnvVars();
 
   const response = await fetch(
-    `${variables.API_URL}/api/articles/find-by-slug/${params.slug}?${query}`,
+    `${variables.API_URL}/api/posts/find-by-slug/${params.slug}?${query}`,
     {
       method: "GET",
       headers: {
