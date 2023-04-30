@@ -12,7 +12,7 @@ const query = qs.stringify({
 export async function loader() {
   checkEnvVars();
 
-  const response = await fetch(`${variables.API_URL}/api/about?${query}`, {
+  const response = await fetch(`${variables.API_URL}/api/margaret?${query}`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
@@ -32,12 +32,11 @@ export async function loader() {
 }
 
 export default function Index() {
-  const about = useLoaderData();
-  console.log("🚀 ~ file: about.tsx:44 ~ Index ~ about:", about);
+  const margaret = useLoaderData();
 
   return (
     <>
-      <Blocks blocks={about?.attributes?.content} />
+      <Blocks blocks={margaret?.attributes?.content} />
     </>
   );
 }
