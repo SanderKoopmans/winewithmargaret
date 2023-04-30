@@ -8,7 +8,6 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "@remix-run/react";
-import { Grape, Instagram, Mail, Search } from "lucide-react";
 import Header from "~/components/header/Header";
 import { Navigation } from "~/components/navigation/Navigation";
 import { Footer } from "./components/footer/footer";
@@ -23,7 +22,8 @@ export const links: LinksFunction = () => {
     { rel: "stylesheet", href: tailwindStylesheetUrl },
     { rel: "stylesheet", href: customStyles },
     // NOTE: Architect deploys the public directory to /_static/
-    { rel: "icon", href: "/_static/favicon.ico" },
+    { rel: "icon", type: "image/svg+xml", href: "/_static/favicon.svg" },
+    { rel: "icon", type: "image/png", href: "/_static/favicon.png" },
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
     {
       rel: "preconnect",
@@ -83,7 +83,7 @@ export default function App() {
           </main>
           <aside className="hidden w-full lg:col-start-2 lg:col-end-2 lg:row-start-2 lg:row-end-3 lg:flex lg:h-full lg:flex-col lg:items-center lg:border-l-2 lg:border-l-gray-300 lg:px-2 lg:pt-6">
             <div className="flex-grow">
-              <Grape />
+              <img className="w-[24px]" src="/_static/grape.svg" alt="Bunch of grapes" />
             </div>
           </aside>
           <Footer />
