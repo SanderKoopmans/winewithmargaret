@@ -35,11 +35,14 @@ export async function loader() {
 }
 
 export default function Index() {
-  const articles = useLoaderData();
+  const posts = useLoaderData();
+  console.log('posts; ', posts);
+  console.log(''.padEnd(80, '*'));
 
   return (
     <ClientOnly fallback={<h1 className="h-[600px]">Loading</h1>}>
-      {() => <ArticleGrid articles={articles} />}
+    {/* <ClientOnly fallback={null}> */}
+      {() => <ArticleGrid articles={posts} />}
     </ClientOnly>
   );
 }

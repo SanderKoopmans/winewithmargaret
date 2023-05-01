@@ -1,0 +1,10 @@
+import { Outlet } from "@remix-run/react";
+
+export default function Article() {
+  return (
+    <>
+      <Outlet />
+      <div>Articles placholder -- articles page</div>
+    </>
+  );
+}
