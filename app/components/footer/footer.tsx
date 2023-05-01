@@ -1,5 +1,28 @@
-import { Facebook, Instagram, Twitter } from "lucide-react";
+import { Instagram, Linkedin, Mail } from "lucide-react";
 import { H3, H4, Paragraph } from "../typography/Typography";
+import { Link } from "@remix-run/react";
+
+const LINKS = [
+  { name: 'Home', to: '/'},
+  { name: 'Margaret', to: '/margaret'},
+  { name: 'Articles', to: '/articles'},
+  // { name: 'Wandering Wine', to: '/wandering-wine'},
+  { name: 'Woman in Wine', to: '/woman-in-wine'},
+  // { name: 'Shop', to: '/shop'},
+  { name: 'Contact', to: '/contact'},
+  { name: 'Privacy Policy', to: '/privacy-policy'},
+  { name: 'Sitemap', to: '/sitemap'},
+]
+type Item = {
+  to: string;
+  name: string;
+}
+
+const MenuItem = (props: { item: Item }) => (
+  <li className="">
+    <Link to={props.item.to}>{props.item.name}</Link>
+  </li>
+)
 
 export const Footer = () => (
   <footer className="col-span-1 w-full bg-black pt-20 pb-10 text-white lg:col-start-1 lg:col-end-3 lg:row-start-3">
@@ -9,11 +32,7 @@ export const Footer = () => (
           @Wine.with.margeret
         </H3>
         <ul className="mb-10 grid grid-cols-footer-links gap-y-10 gap-x-4 uppercase lg:col-start-4 lg:col-end-7">
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Privacy Policy</li>
-          <li>Sitemap</li>
+          {LINKS.map((item, i) => <MenuItem item={item} key={`${i}+${item.name}`} />)}
         </ul>
       </div>
       <div className="newsletter-signup mb-10 lg:col-start-8 lg:col-end-13">
@@ -54,8 +73,18 @@ export const Footer = () => (
         >
           <Instagram />
         </a>
-        <Facebook />
-        <Twitter />
+        <a
+          href="https://www.linkedin.com/in/margot-van-lieshout/"
+          className="hover:cursor-pointer"
+        >
+        <Linkedin />
+        </a>
+        <a
+          href="mailto:growtogether@winewithmargaret.com"
+          className="hover:cursor-pointer"
+        >
+          <Mail />
+        </a>
       </div>
       <div className="copyright lg:col-start-8 lg:col-end-13 lg:row-start-2 lg:row-end-3">
         <Paragraph className="text-sm">

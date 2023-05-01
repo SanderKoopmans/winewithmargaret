@@ -23,7 +23,7 @@ const MenuItem = (props: { item: Item }) => {
 
   return (
   <li className={clsx("border-t-4 px-6 pt-4 uppercase", {
-      'border-t-black': isSelected,
+      'border-t-black -mt-px': isSelected,
       'border-t-transparent': !isSelected,
   })}>
       <Link to={props.item.to}>{props.item.name}</Link>
