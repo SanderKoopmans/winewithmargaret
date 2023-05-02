@@ -2,7 +2,7 @@ import { Link } from "@remix-run/react";
 import { useLocation } from "@remix-run/react";
 import clsx from "clsx";
 
-const LINKS = [
+export const LINKS = [
   { name: 'Margaret', to: '/margaret'},
   { name: 'Articles', to: '/articles'},
   // { name: 'Wandering Wine', to: '/wandering-wine'},
