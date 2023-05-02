@@ -11,7 +11,8 @@ import { buildLinkPath } from "~/utils";
 export const Articles = ({ articles }: any) => {
   return (
     <>
-      {articles.length > 0 &&
+      <p>Placeholder</p>
+      {/* {articles.length > 0 &&
         articles.map(
           ({
             id: articleId,
@@ -59,7 +60,7 @@ export const Articles = ({ articles }: any) => {
               </div>
             </Link>
           )
-        )}
+        )} */}
     </>
   );
 };

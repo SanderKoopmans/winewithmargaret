@@ -1,5 +1,5 @@
-import { JSDOM } from 'jsdom';
-import DOMPurify from "dompurify";
+// import { JSDOM } from 'jsdom';
+// import DOMPurify from "dompurify";
 import { marked } from "marked";
 
 const DEFAULT_REDIRECT = "/";
@@ -41,9 +41,12 @@ export function buildLinkPath(category: string, slug: string): string {
 }
 
 export function parseContent(content: string) {
-  const window = new JSDOM('').window;
-  // @ts-ignore
-  const purify = DOMPurify(window);
-  const clean = purify.sanitize(marked(content));
-  return clean;
+  console.log('parsing...');
+  const parsed = marked(content);
+  return parsed;
+  // const window = new JSDOM('').window;
+  // // @ts-ignore
+  // const purify = DOMPurify(window);
+  // const clean = purify.sanitize(marked(content));
+  // return clean;
 }
