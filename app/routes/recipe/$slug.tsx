@@ -8,7 +8,6 @@ import qs from "qs";
 import recipeStyles from "../../styles/recipe.css";
 import { Clock, Users } from "lucide-react";
 import { H2, H3, Paragraph } from "~/components/typography/Typography";
-import { variables } from "~/config/variables";
 
 const query = qs.stringify({
   populate: {
@@ -24,7 +23,7 @@ export async function loader({ params }: DataFunctionArgs) {
   checkEnvVars();
 
   const response = await fetch(
-    `${variables.API_URL}/api/posts/find-by-slug/${params.slug}?${query}`,
+    `${process.env.STRAPI_URL_BASE}/api/posts/find-by-slug/${params.slug}?${query}`,
     {
       method: "GET",
       headers: {
@@ -106,7 +105,7 @@ export default function Recipe() {
           </div>
           <div className="relative mt-[-60px] mr-[-24px] mb-[36px] ml-auto h-full w-1/2 md:absolute md:right-0 md:top-[-120px] md:mt-0 md:mb-0 md:mr-0">
             <img
-              src={`${variables.API_URL}${url}`}
+              src={`${window.ENV.API_URL}${url}`}
               alt={title}
               className="h-3/4 w-full"
             />

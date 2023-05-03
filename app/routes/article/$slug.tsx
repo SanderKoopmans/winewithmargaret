@@ -5,7 +5,6 @@ import { checkEnvVars, checkStatus } from "~/utils/errorHandling";
 import { parseContent } from "~/utils";
 
 import articleStyles from "../../styles/article.css";
-import { variables } from "~/config/variables";
 
 export async function loader({ params }: DataFunctionArgs) {
   if (!params.slug) {
@@ -14,7 +13,7 @@ export async function loader({ params }: DataFunctionArgs) {
   checkEnvVars();
 
   const response = await fetch(
-    `${variables.API_URL}/api/posts/find-by-slug/${params.slug}?populate=category`,
+    `${process.env.STRAPI_URL_BASE}/api/posts/find-by-slug/${params.slug}?populate=category`,
     {
       method: "GET",
       headers: {
