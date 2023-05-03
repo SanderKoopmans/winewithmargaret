@@ -132,7 +132,7 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 14
 
       - name: 👀 Env
         run: |
@@ -147,8 +147,6 @@ jobs:
         uses: bahmutov/npm-install@v1
         with:
           useLockFile: false
-          node-version: 16
-          install-command: npm install --legacy-peer-deps
 
       - name: 🏗 Build
         run: npm run build
