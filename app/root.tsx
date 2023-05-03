@@ -8,10 +8,10 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "@remix-run/react";
+import { json } from "@remix-run/node";
 import Header from "~/components/header/Header";
 import { Navigation } from "~/components/navigation/Navigation";
 import { Footer } from "./components/footer/footer";
-import { variables } from "./config/variables";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import customStyles from "./styles/winewithmargaret.css";
@@ -46,7 +46,7 @@ export const meta: MetaFunction = () => ({
 export async function loader() {
   checkEnvVars();
 
-  const response = await fetch(`${variables.API_URL}/api/page-title`, {
+  const response = await fetch(`${process.env.STRAPI_URL_BASE}/api/page-title`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
@@ -61,13 +61,16 @@ export async function loader() {
   if (data.error) {
     throw new Response("Error loading data from strapi", { status: 500 });
   }
-
-  console.log("data:", data.data);
-  return data.data;
+  return json({
+    data,
+    ENV: {
+      API_URL: process.env.STRAPI_URL_BASE,
+    },
+  });
 }
 
-export default function App() {
-  const pageTitles = useLoaderData();
+export default function Root() {
+  const data = useLoaderData();
   return (
     <html lang="en" className="h-full">
       <head>
@@ -75,8 +78,8 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
-        <div className="grid h-full grid-cols-small grid-rows-small justify-items-center lg:grid-cols-main lg:grid-rows-main">
-          <Header titles={pageTitles} />
+      <div className="grid h-full grid-cols-small grid-rows-small justify-items-center lg:grid-cols-main lg:grid-rows-main">
+          <Header titles={data.data.data} />
           <main className="col-start-1 col-end-1 row-start-3 row-end-4 flex h-full w-[95%] max-w-7xl flex-col lg:row-start-2 lg:row-end-2 xl:w-11/12 2xl:w-10/12">
             <Navigation />
             <Outlet />
@@ -88,6 +91,13 @@ export default function App() {
           </aside>
           <Footer />
         </div>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.ENV = ${JSON.stringify(
+              data.ENV
+            )}`,
+          }}
+        />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
