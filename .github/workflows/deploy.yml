@@ -165,7 +165,7 @@ jobs:
 
       - name: 🚀 Production Deploy
         if: github.ref == 'refs/heads/main'
-        run: arc deploy --production --prune
+        run: arc deploy --production --prune --force
         env:
           CI: true
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
