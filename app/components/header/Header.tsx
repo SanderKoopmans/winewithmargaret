@@ -10,6 +10,7 @@ const MOBILE_LINKS = [{ name: 'Home', to: '/'}, ...LINKS]
 
 const MobileMenuList = () => {
   const { isExpanded } = useMenuButtonContext();
+  // const isExpanded = true;
 
   useEffect(() => {
     if (isExpanded) {
