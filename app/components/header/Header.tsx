@@ -1,7 +1,7 @@
 import { Link } from "@remix-run/react";
 import { H1, H3 } from "../typography/Typography";
 import { Instagram, Linkedin, Mail, Search } from "lucide-react";
-import { Menu, MenuButton, MenuItems, MenuLink, MenuPopover, useMenuButtonContext } from "@reach/menu-button";
+// import { Menu, MenuButton, MenuItems, MenuLink, MenuPopover, useMenuButtonContext } from "@reach/menu-button";
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { LINKS } from "../navigation/Navigation";
@@ -9,26 +9,26 @@ import { LINKS } from "../navigation/Navigation";
 const MOBILE_LINKS = [{ name: 'Home', to: '/'}, ...LINKS]
 
 const MobileMenuList = () => {
-  const { isExpanded } = useMenuButtonContext();
+  // const { isExpanded } = useMenuButtonContext();
   // const isExpanded = true;
 
-  useEffect(() => {
-    if (isExpanded) {
-      document.body.classList.add('fixed')
-      document.body.classList.add('overflow-y-scroll')
-      document.body.classList.add('w-full')
-      document.body.style.height = '100vh'
-    } else {
-      document.body.classList.remove('fixed')
-      document.body.classList.remove('overflow-y-scroll')
-      document.body.classList.remove('w-full')
-      document.body.style.removeProperty('height');
-    }
-  }, [isExpanded]);
+  // useEffect(() => {
+  //   if (isExpanded) {
+  //     document.body.classList.add('fixed')
+  //     document.body.classList.add('overflow-y-scroll')
+  //     document.body.classList.add('w-full')
+  //     document.body.style.height = '100vh'
+  //   } else {
+  //     document.body.classList.remove('fixed')
+  //     document.body.classList.remove('overflow-y-scroll')
+  //     document.body.classList.remove('w-full')
+  //     document.body.style.removeProperty('height');
+  //   }
+  // }, [isExpanded]);
 
   return (
     <AnimatePresence>
-      {isExpanded ? (
+      {/* {isExpanded ? (
         <MenuPopover
           position={r => ({
             top: '50px',
@@ -60,7 +60,7 @@ const MobileMenuList = () => {
             </MenuItems>
           </motion.div>
           </MenuPopover>
-      ) : null}
+      ) : null} */}
     </AnimatePresence>
   )
 }
@@ -81,60 +81,61 @@ const bottomVariants = {
 }
 
 const MobileMenu = () => (
-  <Menu>
-    {({ isExpanded }) => {
-      const state = isExpanded ? 'open' : 'closed';
-      const transition = {}
-      return (
-        <>
-        <MenuButton>
-          <svg
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <motion.rect
-                animate={state}
-                variants={topVariants}
-                transition={transition}
-                x="6"
-                y="9"
-                width="20"
-                height="2"
-                rx="1"
-                fill="currentColor"
-              />
-              <motion.rect
-                animate={state}
-                variants={centerVariants}
-                transition={transition}
-                x="6"
-                y="15"
-                width="20"
-                height="2"
-                rx="1"
-                fill="currentColor"
-              />
-              <motion.rect
-                animate={state}
-                variants={bottomVariants}
-                transition={transition}
-                x="6"
-                y="21"
-                width="20"
-                height="2"
-                rx="1"
-                fill="currentColor"
-              />
-            </svg>
-          </MenuButton>
-          <MobileMenuList />
-        </>
-      )
-    }}
-  </Menu>
+  <div></div>
+  // <Menu>
+  //   {({ isExpanded }) => {
+  //     const state = isExpanded ? 'open' : 'closed';
+  //     const transition = {}
+  //     return (
+  //       <>
+  //       <MenuButton>
+  //         <svg
+  //             width="32"
+  //             height="32"
+  //             viewBox="0 0 32 32"
+  //             fill="none"
+  //             xmlns="http://www.w3.org/2000/svg"
+  //           >
+  //             <motion.rect
+  //               animate={state}
+  //               variants={topVariants}
+  //               transition={transition}
+  //               x="6"
+  //               y="9"
+  //               width="20"
+  //               height="2"
+  //               rx="1"
+  //               fill="currentColor"
+  //             />
+  //             <motion.rect
+  //               animate={state}
+  //               variants={centerVariants}
+  //               transition={transition}
+  //               x="6"
+  //               y="15"
+  //               width="20"
+  //               height="2"
+  //               rx="1"
+  //               fill="currentColor"
+  //             />
+  //             <motion.rect
+  //               animate={state}
+  //               variants={bottomVariants}
+  //               transition={transition}
+  //               x="6"
+  //               y="21"
+  //               width="20"
+  //               height="2"
+  //               rx="1"
+  //               fill="currentColor"
+  //             />
+  //           </svg>
+  //         </MenuButton>
+  //         <MobileMenuList />
+  //       </>
+  //     )
+  //   }}
+  // </Menu>
 )
 
 export default function Header({ titles }: any) {
