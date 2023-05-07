@@ -29,18 +29,21 @@ export const Articles = ({ articles }: any) => {
               //     attributes: { name: categoryName },
               //   },
               // },
+              PageType: {
+                PageType,
+              },
             },
           }) => (
             <Link
               // to={buildLinkPath(categoryName, slug)}
-              to={buildLinkPath(slug)}
+              to={buildLinkPath(PageType, slug)}
               className="item p-2 transition duration-300 hover:scale-[1.02] hover:cursor-pointer hover:shadow-2xl"
               key={publishedAt}
             >
               <div className="article">
                 <h3 className="mb-4 text-4xl">{title}</h3>
                 <img
-                  src={`${window.ENV.API_URL}${url}`}
+                  src={`${url}`}
                   alt={title}
                   className="mb-6"
                 />
