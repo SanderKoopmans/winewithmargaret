@@ -23,7 +23,7 @@ export const Articles = ({ articles }: any) => {
                   attributes: { url },
                 },
               },
-              slug,
+              Slug,
               // categories: {
               //   data: {
               //     attributes: { name: categoryName },
@@ -36,7 +36,7 @@ export const Articles = ({ articles }: any) => {
           }) => (
             <Link
               // to={buildLinkPath(categoryName, slug)}
-              to={buildLinkPath(PageType, slug)}
+              to={buildLinkPath(PageType, Slug)}
               className="item p-2 transition duration-300 hover:scale-[1.02] hover:cursor-pointer hover:shadow-2xl"
               key={publishedAt}
             >

@@ -8,6 +8,7 @@ const query = qs.stringify({
   populate: {
     categories: { populate: ["category"] },
     Thumbnail: { fields: ["url"] },
+    PageType: { fields: ["PageType"] },
   },
 });
 
