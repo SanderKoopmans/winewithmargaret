@@ -36,7 +36,6 @@ export async function loader() {
 
 export default function Index() {
   const posts = useLoaderData();
-  console.log("🚀 ~ file: index.tsx:39 ~ Index ~ posts:", posts)
 
   return (
     <ClientOnly fallback={<h1 className="h-[600px]">Loading</h1>}>

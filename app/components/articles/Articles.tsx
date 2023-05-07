@@ -17,7 +17,7 @@ export const Articles = ({ articles }: any) => {
             attributes: {
               title,
               publishedAt,
-              excerpt,
+              Excerpt,
               Thumbnail: {
                 data: {
                   attributes: { url },
@@ -47,7 +47,7 @@ export const Articles = ({ articles }: any) => {
                   alt={title}
                   className="mb-6"
                 />
-                <p className="mb-6">{excerpt}</p>
+                <p className="mb-6">{Excerpt}</p>
                 <div className="flex items-center py-2">
                   <p className="text-sm capitalize italic">
                     {new Date(publishedAt).toLocaleString("default", {
