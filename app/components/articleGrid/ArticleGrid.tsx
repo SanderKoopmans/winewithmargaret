@@ -1,11 +1,14 @@
-import { useEffect } from "react";
+// import { useEffect } from "@remix-run/react";
+import * as React from "react";
 import { Articles } from "../articles/Articles";
 
 export const ArticleGrid = ({ articles }: any) => {
   //   const articles = useLoaderData();
 
   /** This should move to render on client-side, won't recalculate rows */
-  useEffect(() => {
+  React.useEffect(() => {
+    document.addEventListener("readystatechange", resize);
+    
     window.addEventListener("load", resize);
     window.addEventListener("resize", resize);
 
