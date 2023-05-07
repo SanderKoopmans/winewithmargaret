@@ -1,4 +1,3 @@
-// import { useEffect } from "@remix-run/react";
 import * as React from "react";
 import { Articles } from "../articles/Articles";
 
@@ -7,11 +6,6 @@ export const ArticleGrid = ({ articles }: any) => {
 
   /** This should move to render on client-side, won't recalculate rows */
   React.useEffect(() => {
-    document.addEventListener("readystatechange", resize);
-    
-    window.addEventListener("load", resize);
-    window.addEventListener("resize", resize);
-
     function resize() {
       const grid = document.querySelector("#masonry") as HTMLElement;
       const rowHeight = getStyleValue(grid, "grid-auto-rows");
@@ -31,6 +25,15 @@ export const ArticleGrid = ({ articles }: any) => {
 
     function getStyleValue(element: HTMLElement, style: string): number {
       return parseInt(window.getComputedStyle(element).getPropertyValue(style));
+    }
+
+    // Check if the page has already loaded
+    if (document.readyState === 'complete') {
+      resize();
+    } else {
+      window.addEventListener('load', resize);
+      // Remove the event listener when component unmounts
+      return () => window.removeEventListener('load', resize);
     }
   }, []);
 
