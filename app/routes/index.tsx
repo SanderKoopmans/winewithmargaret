@@ -7,8 +7,8 @@ import { ArticleGrid } from "~/components/articleGrid/ArticleGrid";
 const query = qs.stringify({
   populate: {
     categories: { populate: ["category"] },
-    Thumbnail: { fields: ["url"] },
-    PageType: { fields: ["PageType"] },
+    thumbnail: { fields: ["url"] },
+    pageType: { fields: ["pageType"] },
   },
 });
 
