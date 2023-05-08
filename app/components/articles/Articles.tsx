@@ -17,26 +17,26 @@ export const Articles = ({ articles }: any) => {
             attributes: {
               title,
               publishedAt,
-              Excerpt,
-              Thumbnail: {
+              excerpt,
+              thumbnail: {
                 data: {
                   attributes: { url },
                 },
               },
-              Slug,
+              slug,
               // categories: {
               //   data: {
               //     attributes: { name: categoryName },
               //   },
               // },
-              PageType: {
-                PageType,
+              pageType: {
+                pageType,
               },
             },
           }) => (
             <Link
               // to={buildLinkPath(categoryName, slug)}
-              to={buildLinkPath(PageType, Slug)}
+              to={buildLinkPath(pageType, slug)}
               className="item p-2 transition duration-300 hover:scale-[1.02] hover:cursor-pointer hover:shadow-2xl"
               key={publishedAt}
             >
@@ -47,7 +47,7 @@ export const Articles = ({ articles }: any) => {
                   alt={title}
                   className="mb-6"
                 />
-                <p className="mb-6">{Excerpt}</p>
+                <p className="mb-6">{excerpt}</p>
                 <div className="flex items-center py-2">
                   <p className="text-sm capitalize italic">
                     {new Date(publishedAt).toLocaleString("default", {

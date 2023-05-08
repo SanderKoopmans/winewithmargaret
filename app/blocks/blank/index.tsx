@@ -47,7 +47,7 @@ const renderListType = (list) => {
 };
 
 export const Blank = (block) => {
-  const parsedContent = JSON.parse(block.data.content);
+  const parsedContent = JSON.parse(block.data.blank);
 
   /**
    * Map over block content
