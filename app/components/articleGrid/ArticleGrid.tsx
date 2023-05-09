@@ -27,7 +27,7 @@ export const ArticleGrid = ({ articles }: any) => {
       return parseInt(window.getComputedStyle(element).getPropertyValue(style));
     }
 
-    setTimeout(() => resize(), 100);
+    // setTimeout(() => resize(), 100);
 
     // Check if the page has already loaded
     if (document.readyState === 'complete') {
