@@ -27,6 +27,8 @@ export const ArticleGrid = ({ articles }: any) => {
       return parseInt(window.getComputedStyle(element).getPropertyValue(style));
     }
 
+    setTimeout(() => resize(), 100);
+
     // Check if the page has already loaded
     if (document.readyState === 'complete') {
       resize();
@@ -40,7 +42,7 @@ export const ArticleGrid = ({ articles }: any) => {
   return (
     <div
       id="masonry"
-      className="grid h-full max-w-[1280px] flex-grow auto-rows-[20px] grid-cols-masonry gap-2.5 px-4"
+      className="grid max-w-[1280px] flex-grow auto-rows-[20px] grid-cols-masonry gap-2.5 px-4"
     >
       <Articles articles={articles} />
     </div>
