@@ -46,6 +46,13 @@ const renderListType = (list) => {
   }
 };
 
+const renderImage = (image) => (
+  <>
+    <img src={`${image.data.file.url}`} alt={image.data.file.alternativeText || 'No alternative description found'} />
+    {image.data.caption && <Paragraph>{image.data.caption}</Paragraph>}
+  </>
+)
+
 export const Blank = (block) => {
   const parsedContent = JSON.parse(block.data.blank);
 
@@ -63,6 +70,8 @@ export const Blank = (block) => {
         return renderListType(block);
       case "quote":
         return <Quote content={block.data} />;
+      case "image":
+        return renderImage(block);
       default:
         return (
           <Paragraph
