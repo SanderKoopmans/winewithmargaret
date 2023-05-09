@@ -6,7 +6,7 @@ export const LINKS = [
   { name: 'Margaret', to: '/margaret'},
   { name: 'Articles', to: '/articles'},
   // { name: 'Wandering Wine', to: '/wandering-wine'},
-  { name: 'Woman in Wine', to: '/woman-in-wine'},
+  { name: 'Women in Wine', to: '/women-in-wine'},
   // { name: 'Shop', to: '/shop'},
   { name: 'Contact', to: '/contact'},
 ]

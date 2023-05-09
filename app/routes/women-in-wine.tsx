@@ -29,13 +29,12 @@ export async function loader() {
   return data.data;
 }
 
-export default function WomanInWine() {
+export default function WomenInWine() {
   const authors = useLoaderData();
 
   return (
     <>
       <Outlet />
-      <div>Woman in Wine placholder -- authors page</div>
       {authors.map((author, i) => <AuthorCard author={author} key={`${i}+${author.slug}`} />)}
     </>
   );
