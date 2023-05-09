@@ -24,7 +24,7 @@ export async function loader({ params }: DataFunctionArgs) {
   checkEnvVars();
 
   const response = await fetch(
-    `${process.env.STRAPI_URL_BASE}/api/posts/find-by-slug/${params.slug}?${query}`,
+    `${process.env.STRAPI_URL_BASE}/api/posts/find-by-slug/${params.slug}?populate=deep`,
     {
       method: "GET",
       headers: {

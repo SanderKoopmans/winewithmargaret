@@ -1,12 +1,13 @@
 import { H1 } from "~/components/typography/Typography";
 
-export const Hero = ({ data: { title, image } }) => (
+export const Hero = ({ data }) => {
+  return (
   <>
-    <H1 className="mb-8">{title}</H1>
     <img
-      className="mb-8 w-1/2"
-      src={`${image.data.attributes.url}`}
+      className="mb-8 w-full"
+      src={`${data.image.data.attributes.url}`}
       alt="alt-here"
     />
+    <H1 className="mb-8">{data.title}</H1>
   </>
-);
+)};
