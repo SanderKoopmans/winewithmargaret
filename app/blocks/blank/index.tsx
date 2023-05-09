@@ -59,7 +59,7 @@ const pickEmbedService = (service) => {
     case "instagram":
       return <iframe className="my-0 mx-auto" id={service.id} src={service.data.embed} width={service.data.width} height={service.data.height} />
     case "youtube":
-      return <iframe id={service.id} src={service.data.embed} className="my-0 mx-auto" width={service.data.width} height={service.data.height} />
+      return <iframe id={service.id} src={service.data.embed} className="my-0 mx-auto max-w-[95%]" width={service.data.width} height={service.data.height} />
     default:
       return <div className="bg-main p-2">{`Service ${service.data.service} not implemented yet`}</div>
   }
