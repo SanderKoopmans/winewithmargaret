@@ -150,12 +150,14 @@ export default function Header({ titles }: any) {
             <a
               href="https://www.instagram.com/wine.with.margaret/"
               className="hover:cursor-pointer"
+              target="_blank"
             >
               <Instagram />
             </a>
             <a
           href="https://www.linkedin.com/in/margot-van-lieshout/"
           className="hover:cursor-pointer"
+          target="_blank"
         >
         <Linkedin />
         </a>
