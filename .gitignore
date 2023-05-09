@@ -15,3 +15,6 @@ sam.yaml
 
 Dockerfile
 Dockerfile.prod
+
+# Random
+embed.json

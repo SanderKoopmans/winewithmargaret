@@ -31,7 +31,6 @@ export async function loader() {
 
 export default function WomanInWine() {
   const authors = useLoaderData();
-  console.log("🚀 ~ file: woman-in-wine.tsx:33 ~ WomanInWine ~ authors:", authors)
 
   return (
     <>

@@ -41,7 +41,6 @@ export function buildLinkPath(category: string, slug: string): string {
 }
 
 export function parseContent(content: string) {
-  console.log('parsing...');
   const parsed = marked(content);
   return parsed;
   // const window = new JSDOM('').window;
