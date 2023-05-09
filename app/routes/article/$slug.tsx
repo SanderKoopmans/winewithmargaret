@@ -10,7 +10,6 @@ import { Blocks } from "~/components/blocks/Blocks";
 const query = qs.stringify({
   populate: {
     content: { populate: ["content", "content.image"] },
-    // content: ["content", "content.image"],
     categories: { populate: ["category"] },
     thumbnail: { fields: ["url"] },
     pageType: { fields: ["pageType"] },
