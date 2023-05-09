@@ -20,7 +20,7 @@ export const Articles = ({ articles }: any) => {
               excerpt,
               thumbnail: {
                 data: {
-                  attributes: { url },
+                  attributes: { url, width, height },
                 },
               },
               slug,
@@ -45,6 +45,8 @@ export const Articles = ({ articles }: any) => {
                 <img
                   src={`${url}`}
                   alt={title}
+                  width={width}
+                  height={height}
                   className="mb-6"
                 />
                 <p className="mb-6">{excerpt}</p>
