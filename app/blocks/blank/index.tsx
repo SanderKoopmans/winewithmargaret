@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { OrderedList, UnOrderedList } from "~/components/list/List";
 import { Quote } from "~/components/quote/Quote";
 import {
@@ -53,12 +54,18 @@ const renderImage = (image) => (
   </>
 )
 
+const calculateIframeHeight = (iFrameId: string) => {
+  const targetHeight = document.getElementById(iFrameId).contentWindow.document.body.scrollHeight;
+  document.getElementById(iFrameId).height = targetHeight;
+}
+
 const pickEmbedService = (service) => {
   switch (service.data.service) {
     case "instagram":
-      return <iframe id={service.id} src={service.data.embed} className="w-full h-full" />
+      // return <iframe id={service.id} src={service.data.embed} className={`w-[${service.data.width}px] h-[${service.data.height}px]`} />
+      return <iframe id={service.id} src={service.data.embed} onLoad={() => calculateIframeHeight(service.id)} />
     case "youtube":
-      return <div><iframe id={service.id} src={service.data.embed} className="w-full h-full" /></div>
+      return <iframe id={service.id} src={service.data.embed} className={`w-[${service.data.width}px] h-[${service.data.height}px]`} onLoad={() => calculateIframeHeight(service.id)} />
     default:
       return <div className="bg-main p-2">{`Service ${service.data.service} not implemented yet`}</div>
   }
