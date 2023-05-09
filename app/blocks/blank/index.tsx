@@ -53,6 +53,17 @@ const renderImage = (image) => (
   </>
 )
 
+const pickEmbedService = (service) => {
+  switch (service.data.service) {
+    case "instagram":
+      return <iframe id={service.id} src={service.data.embed} className="w-full h-full" />
+    case "youtube":
+      return <div><iframe id={service.id} src={service.data.embed} className="w-full h-full" /></div>
+    default:
+      return <div className="bg-main p-2">{`Service ${service.data.service} not implemented yet`}</div>
+  }
+}
+
 export const Blank = (block) => {
   const parsedContent = JSON.parse(block.data.blank);
 
@@ -72,6 +83,8 @@ export const Blank = (block) => {
         return <Quote content={block.data} />;
       case "image":
         return renderImage(block);
+      case "embed":
+        return pickEmbedService(block);
       default:
         return (
           <Paragraph
