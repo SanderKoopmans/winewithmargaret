@@ -29,7 +29,7 @@ export async function loader() {
   return data.data;
 }
 
-export default function Index() {
+export default function Margaret() {
   const margaret = useLoaderData();
 
   return (
