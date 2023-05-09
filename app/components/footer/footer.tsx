@@ -38,11 +38,11 @@ export const Footer = () => (
       <div className="newsletter-signup mb-10 lg:col-start-8 lg:col-end-13">
         <H4 className="mb-4 text-white">Sign up for our newsletter</H4>
         <form action="post">
-          <div className="mb-4 flex gap-4">
+          <div className="mb-4 flex flex-col lg:flex-row gap-4">
             <label htmlFor="name">
               Name:
               <input
-                className="p-2"
+                className="p-2 ml-2"
                 name="name"
                 type="text"
                 placeholder="Your Name"
@@ -51,7 +51,7 @@ export const Footer = () => (
             <label htmlFor="name">
               Email:
               <input
-                className="p-2"
+                className="p-2 ml-2"
                 name="email"
                 type="email"
                 placeholder="Your email"
