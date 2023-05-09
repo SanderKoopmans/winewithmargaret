@@ -59,13 +59,12 @@ export default function Article() {
 
   const
     {
-      attributes: { title, content },
+      attributes: { content },
     }
   = post;
 
   return (
     <div>
-      <h1>{title}</h1>
       {content && <Blocks blocks={content} />}
     </div>
   );

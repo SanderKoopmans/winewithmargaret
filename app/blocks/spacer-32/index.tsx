@@ -1,0 +1,1 @@
+export const Spacer32 = () => <div className="h-[32px] lg:h-[64px]" />
