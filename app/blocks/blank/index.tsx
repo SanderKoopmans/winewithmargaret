@@ -48,7 +48,7 @@ const renderListType = (list) => {
 
 const renderImage = (image) => (
   <>
-    <img src={`${image.data.file.url}`} alt={image.data.file.alternativeText || 'No alternative description found'} />
+    <img className="w-full" src={`${image.data.file.url}`} alt={image.data.file.alternativeText || 'No alternative description found'} />
     {image.data.caption && <Paragraph>{image.data.caption}</Paragraph>}
   </>
 )
