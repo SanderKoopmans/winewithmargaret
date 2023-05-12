@@ -78,7 +78,7 @@ export default function Root() {
         <Links />
       </head>
       <body>
-      <div className="flex flex-col h-full justify-items-center lg:grid lg:grid-cols-main lg:grid-rows-main">
+        <div className="flex flex-col h-full justify-items-center lg:grid lg:grid-cols-main lg:grid-rows-main">
           <Header titles={data.data.data} />
           <main className="px-4 pb-6 flex flex-grow max-w-7xl flex-col lg:row-start-2 lg:row-end-2 xl:w-11/12 2xl:w-10/12">
             <Navigation />

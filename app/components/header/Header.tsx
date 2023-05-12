@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { LINKS } from "../navigation/Navigation";
 
-const MOBILE_LINKS = [{ name: 'Home', to: '/'}, ...LINKS]
+const MOBILE_LINKS = [{ name: "Home", to: "/"}, ...LINKS]
 
 const MobileMenuList = () => {
   // const { isExpanded } = useMenuButtonContext();
@@ -66,7 +66,7 @@ const MobileMenuList = () => {
 }
 
 const topVariants = {
-  open: {rotate: 45, y: 7, originX: '16px', originY: '10px' },
+  open: {rotate: 45, y: 7, originX: "16px", originY: "10px" },
   closed: {rotate: 0, y: 0, originX: 0, originY: 0 },
 }
 
@@ -76,7 +76,7 @@ const centerVariants = {
 }
 
 const bottomVariants = {
-  open: {rotate: -45, y: -5, originX: '16px', originY: '22px' },
+  open: {rotate: -45, y: -5, originX: "16px", originY: "22px" },
   closed: {rotate: 0, y: 0, originX: 0, originY: 0 },
 }
 
@@ -151,23 +151,23 @@ export default function Header({ titles }: any) {
             <a
               href="https://www.instagram.com/wine.with.margaret/"
               className="hover:cursor-pointer"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <Instagram />
             </a>
             <a
-          href="https://www.linkedin.com/in/margot-van-lieshout/"
-          className="hover:cursor-pointer"
-          target="_blank"
-        >
-        <Linkedin />
-        </a>
-        <a
-          href="mailto:growtogether@winewithmargaret.com"
-          className="hover:cursor-pointer"
-        >
-          <Mail />
-        </a>
+              href="https://www.linkedin.com/in/margot-van-lieshout/"
+              className="hover:cursor-pointer"
+              target="_blank" rel="noreferrer"
+            >
+              <Linkedin />
+            </a>
+            <a
+              href="mailto:growtogether@winewithmargaret.com"
+              className="hover:cursor-pointer"
+            >
+              <Mail />
+            </a>
             <Search />
           </div>
         </div>

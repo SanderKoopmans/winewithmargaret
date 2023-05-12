@@ -217,7 +217,7 @@ async function askSetupQuestions({ packageManager, rootDirectory }) {
 
   if (answers.validate) {
     console.log(
-      `Running the validate script to make sure everything was set up properly`
+      "Running the validate script to make sure everything was set up properly"
     );
     execSync(pm.run("validate"), { cwd: rootDirectory, stdio: "inherit" });
   }
