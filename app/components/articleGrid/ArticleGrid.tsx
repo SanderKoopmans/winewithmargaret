@@ -30,12 +30,12 @@ export const ArticleGrid = ({ articles }: any) => {
     // setTimeout(() => resize(), 100);
 
     // Check if the page has already loaded
-    if (document.readyState === 'complete') {
+    if (document.readyState === "complete") {
       resize();
     } else {
-      window.addEventListener('load', resize);
+      window.addEventListener("load", resize);
       // Remove the event listener when component unmounts
-      return () => window.removeEventListener('load', resize);
+      return () => window.removeEventListener("load", resize);
     }
   }, []);
 

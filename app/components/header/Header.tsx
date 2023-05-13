@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { LINKS } from "../navigation/Navigation";
 
-const MOBILE_LINKS = [{ name: "Home", to: "/"}, ...LINKS]
+const MOBILE_LINKS = [{ name: "Home", to: "/"}].concat(LINKS.slice(1));
 
 const MobileMenuList = ({ isExpanded, handleMenuClick }: any) => {
 
