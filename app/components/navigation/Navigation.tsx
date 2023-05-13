@@ -33,6 +33,8 @@ const MenuItem = (props: { item: Item, handleNavClick: (event: React.MouseEvent<
   )}
 
 export const Navigation = () => {
+  const location = useLocation();
+
   useEffect(() => {
     function sethighlight() {
       const activeNav = document.getElementsByClassName("active");
@@ -56,7 +58,7 @@ export const Navigation = () => {
         window.removeEventListener("resize", sethighlight);
       };
     }
-  }, []);
+  }, [location]);
 
   const handleNavClick = (event: any) => {
     const tabHighlighter = document.getElementById("tab-highlighter");
