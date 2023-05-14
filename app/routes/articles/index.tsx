@@ -1,4 +1,4 @@
-import { Outlet, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import { checkEnvVars, checkStatus } from "~/utils/errorHandling";
 import qs from "qs";
 import { ClientOnly } from "~/components/client-only/ClientOnly";
@@ -40,10 +40,8 @@ export default function Article() {
   return (
     <>
       <ClientOnly fallback={<h1 className="h-[600px]">Loading</h1>}>
-        {/* <ClientOnly fallback={null}> */}
         {() => <ArticleGrid articles={posts} />}
       </ClientOnly>
-      {/* <Outlet /> */}
     </>
   );
 }
