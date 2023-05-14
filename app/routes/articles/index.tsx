@@ -38,9 +38,12 @@ export default function Article() {
   const posts = useLoaderData();
 
   return (
-    <ClientOnly fallback={<h1 className="h-[600px]">Loading</h1>}>
-    {/* <ClientOnly fallback={null}> */}
-      {() => <ArticleGrid articles={posts} />}
-    </ClientOnly>
+    <>
+      <ClientOnly fallback={<h1 className="h-[600px]">Loading</h1>}>
+        {/* <ClientOnly fallback={null}> */}
+        {() => <ArticleGrid articles={posts} />}
+      </ClientOnly>
+      {/* <Outlet /> */}
+    </>
   );
 }
