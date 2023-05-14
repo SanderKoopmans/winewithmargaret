@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { NavLink } from "@remix-run/react";
 import { useLocation } from "@remix-run/react";
 import { useEffect } from "react";
 import clsx from "clsx";
@@ -23,12 +23,11 @@ const MenuItem = (props: { item: Item, handleNavClick: (event: React.MouseEvent<
 
   const isSelected =
     props.item.to === location.pathname || location.pathname.startsWith(`${props.item.to}/`)
-
   return (
     <li className={clsx("border-t-4 px-6 pt-4 uppercase border-t-transparent", {
       "active": isSelected,
     })}>
-      <Link to={props.item.to} onClick={props.handleNavClick}>{props.item.name}</Link>
+      <NavLink to={props.item.to} onClick={props.handleNavClick}>{props.item.name}</NavLink>
     </li>
   )}
 
@@ -40,8 +39,8 @@ export const Navigation = () => {
       const activeNav = document.getElementsByClassName("active");
       const tabHighlighter = document.getElementById("tab-highlighter");
       if (tabHighlighter) {
-        tabHighlighter.style.left = activeNav[0].offsetLeft + "px";
-        tabHighlighter.style.width = activeNav[0].offsetWidth + "px";
+        tabHighlighter.style.left = activeNav[0]?.offsetLeft + "px";
+        tabHighlighter.style.width = activeNav[0]?.offsetWidth + "px";
       }
     }
     sethighlight();
