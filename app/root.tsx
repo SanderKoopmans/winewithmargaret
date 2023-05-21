@@ -84,7 +84,7 @@ export default function Root() {
             <Navigation />
             <Outlet />
           </main>
-          <aside className="hidden w-full lg:col-start-2 lg:col-end-2 lg:row-start-2 lg:row-end-3 lg:flex lg:h-full lg:flex-col lg:items-center lg:border-l-2 lg:border-l-gray-300 lg:px-2 lg:pt-6">
+          <aside className="bg-primary hidden w-full lg:col-start-2 lg:col-end-2 lg:row-start-2 lg:row-end-3 lg:flex lg:h-full lg:flex-col lg:items-center lg:border-l-2 lg:border-l-gray-300 lg:px-2 lg:pt-6">
             <div className="flex-grow">
               <img className="w-[24px]" src="/_static/grape.svg" alt="Bunch of grapes" />
             </div>

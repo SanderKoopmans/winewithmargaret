@@ -128,7 +128,7 @@ const MobileMenu = () => {
 export default function Header({ titles }: any) {
   return (
     <>
-      <aside className="row-span-1 w-full border-b-2 border-b-gray-300 px-4 py-2 lg:col-start-2 lg:col-end-2 lg:row-start-1 lg:row-end-1 lg:border-b-0 lg:border-l-2 lg:border-l-gray-300 lg:py-0 lg:px-2 lg:pt-8">
+      <aside className="bg-primary row-span-1 w-full border-b-2 border-b-gray-300 px-4 py-2 lg:col-start-2 lg:col-end-2 lg:row-start-1 lg:row-end-1 lg:border-b-0 lg:border-l-2 lg:border-l-gray-300 lg:py-0 lg:px-2 lg:pt-8">
         <div className="flex h-full justify-between lg:border-b-2 lg:border-b-gray-300">
           <div className="block lg:hidden">
             <MobileMenu />

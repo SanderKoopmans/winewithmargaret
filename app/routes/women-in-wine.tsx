@@ -1,41 +1,35 @@
 import { Outlet, useLoaderData } from "@remix-run/react";
 import qs from "qs";
+import { AuthorIntro } from "~/components/AuthorIntro";
 import { AuthorCard } from "~/components/authorCard/AuthorCard";
-import { checkEnvVars, checkStatus } from "~/utils/errorHandling";
+import { getAuthorIntro, getAuthors } from "~/utils/author.server";
 
 const query = qs.stringify({
   populate: ["picture"],
 });
 
 export async function loader() {
-  checkEnvVars();
+  const [authorIntro, authors] = await Promise.all([
+    getAuthorIntro(),
+    getAuthors(query),
+  ]);
 
-  const response = await fetch(`${process.env.STRAPI_URL_BASE}/api/authors?${query}`, {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
-      "Content-Type": "application/json",
-    },
-  });
-
-  checkStatus(response);
-
-  const data = await response.json();
-
-  if (data.error) {
-    throw new Response("Error loading data from strapi", { status: 500 });
+  return {
+    authors,
+    authorIntro,
   }
-
-  return data.data;
 }
 
 export default function WomenInWine() {
-  const authors = useLoaderData();
+  const { authors, authorIntro } = useLoaderData();
 
   return (
     <>
       <Outlet />
-      {authors.map((author, i) => <AuthorCard author={author} key={`${i}+${author.slug}`} />)}
+      <AuthorIntro intro={authorIntro} />
+      <section className="flex gap-8 mx-auto">
+        {authors.map((author, i) => <AuthorCard author={author} key={`${i}+${author.slug}`} />)}
+      </section>
     </>
   );
 }

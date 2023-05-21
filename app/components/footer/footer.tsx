@@ -3,15 +3,15 @@ import { H3, H4, Paragraph } from "../typography/Typography";
 import { Link } from "@remix-run/react";
 
 const LINKS = [
-  { name: 'Home', to: '/'},
-  { name: 'Margaret', to: '/margaret'},
-  { name: 'Articles', to: '/articles'},
+  { name: "Home", to: "/"},
+  { name: "Margaret", to: "/margaret"},
+  { name: "Articles", to: "/articles"},
   // { name: 'Wandering Wine', to: '/wandering-wine'},
-  { name: 'Woman in Wine', to: '/woman-in-wine'},
+  { name: "Woman in Wine", to: "/woman-in-wine"},
   // { name: 'Shop', to: '/shop'},
-  { name: 'Contact', to: '/contact'},
-  { name: 'Privacy Policy', to: '/privacy-policy'},
-  { name: 'Sitemap', to: '/sitemap'},
+  { name: "Contact", to: "/contact"},
+  { name: "Privacy Policy", to: "/privacy-policy"},
+  { name: "Sitemap", to: "/sitemap"},
 ]
 type Item = {
   to: string;
@@ -70,16 +70,16 @@ export const Footer = () => (
         <a
           href="https://www.instagram.com/wine.with.margaret/"
           className="hover:cursor-pointer"
-          target="_blank"
+          target="_blank" rel="noreferrer"
         >
           <Instagram />
         </a>
         <a
           href="https://www.linkedin.com/in/margot-van-lieshout/"
           className="hover:cursor-pointer"
-          target="_blank"
+          target="_blank" rel="noreferrer"
         >
-        <Linkedin />
+          <Linkedin />
         </a>
         <a
           href="mailto:growtogether@winewithmargaret.com"

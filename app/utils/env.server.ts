@@ -1,7 +1,7 @@
 function getEnv() {
-    return {
-        API_URL: process.env.STRAPI_URL_BASE,
-    }
+  return {
+    API_URL: process.env.STRAPI_URL_BASE,
+  }
 }
 
 type ENV = ReturnType<typeof getEnv>
