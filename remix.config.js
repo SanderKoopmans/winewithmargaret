@@ -6,6 +6,7 @@ const path = require("path");
 module.exports = {
   future: {
     unstable_tailwind: true,
+    v2_errorBoundary: true,
   },
   appDirectory: "app",
   cacheDirectory: "./node_modules/.cache/remix",
