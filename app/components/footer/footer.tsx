@@ -89,7 +89,7 @@ export const Footer = () => (
         </a>
       </div>
       <div className="copyright lg:col-start-8 lg:col-end-13 lg:row-start-2 lg:row-end-3">
-        <Paragraph className="text-sm">
+        <Paragraph className="text-sm text-white">
           © {new Date().getFullYear()} - Wine with Margaret
         </Paragraph>
       </div>
