@@ -1,21 +1,12 @@
 import { isRouteErrorResponse, useLoaderData, useRouteError } from "@remix-run/react";
 import { checkEnvVars, checkStatus } from "~/utils/errorHandling";
-import qs from "qs";
 import { ClientOnly } from "~/components/client-only/ClientOnly";
 import { ArticleGrid } from "~/components/articleGrid/ArticleGrid";
-
-const query = qs.stringify({
-  populate: {
-    categories: { populate: ["category"] },
-    thumbnail: { fields: ["url"] },
-    pageType: { fields: ["pageType"] },
-  },
-});
 
 export async function loader() {
   checkEnvVars();
 
-  const response = await fetch(`${process.env.STRAPI_URL_BASE}/api/posts?populate=deep`, {
+  const response = await fetch(`${process.env.STRAPI_URL_BASE}/api/posts?populate=deep&sort=createdAt:desc`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
@@ -39,7 +30,6 @@ export default function Index() {
 
   return (
     <ClientOnly fallback={<h1 className="h-[600px]">Loading</h1>}>
-      {/* <ClientOnly fallback={null}> */}
       {() => <ArticleGrid articles={posts} />}
     </ClientOnly>
   );
