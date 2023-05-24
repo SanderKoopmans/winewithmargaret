@@ -82,7 +82,7 @@ type ParagraphProps = {
 function Paragraph({
   className,
   as = "p",
-  textColorClassName = "text-secondary",
+  textColorClassName = "text-mainDark",
   ...rest
 }: ParagraphProps) {
   return React.createElement(as, {

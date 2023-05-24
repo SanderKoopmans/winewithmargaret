@@ -16,10 +16,10 @@ export const Blocks = ({ blocks }) => {
     const blockData = block.__component
       ? block
       : {
-          ...block.data,
-          __component: blockType,
-          id: block.id,
-        };
+        ...block.data,
+        __component: blockType,
+        id: block.id,
+      };
 
     const blockProps = {
       key: blockKey,

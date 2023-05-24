@@ -49,7 +49,7 @@ const renderListType = (list) => {
 
 const renderImage = (image) => (
   <>
-    <img className="w-full" src={`${image.data.file.url}`} alt={image.data.file.alternativeText || 'No alternative description found'} />
+    <img className="w-full" src={`${image.data.file.url}`} alt={image.data.file.alternativeText || "No alternative description found"} />
     {image.data.caption && <Paragraph>{image.data.caption}</Paragraph>}
   </>
 )
@@ -57,16 +57,23 @@ const renderImage = (image) => (
 const pickEmbedService = (service) => {
   switch (service.data.service) {
     case "instagram":
-      return <iframe className="my-0 mx-auto" id={service.id} src={service.data.embed} width={service.data.width} height={service.data.height} />
+      return <iframe className="my-0 mx-auto" title={`title-${service.id}`} id={service.id} src={service.data.embed} width={service.data.width} height={service.data.height} />
     case "youtube":
-      return <iframe id={service.id} src={service.data.embed} className="my-0 mx-auto max-w-[95%]" width={service.data.width} height={service.data.height} />
+      return <iframe title={`title-${service.id}`} id={service.id} src={service.data.embed} className="my-0 mx-auto max-w-[95%]" width={service.data.width} height={service.data.height} />
     default:
       return <div className="bg-main p-2">{`Service ${service.data.service} not implemented yet`}</div>
   }
 }
 
 export const Blank = (block) => {
-  const parsedContent = JSON.parse(block.data.blank);
+  let parsedContent;
+  if (block?.content) {
+    parsedContent = JSON.parse(block.content);
+  }
+  
+  if (block?.data?.blank) {
+    parsedContent = JSON.parse(block.data.blank);
+  }
 
   /**
    * Map over block content
