@@ -57,7 +57,7 @@ const renderImage = (image) => (
 const pickEmbedService = (service) => {
   switch (service.data.service) {
     case "instagram":
-      return <iframe className="my-0 mx-auto" title={`title-${service.id}`} id={service.id} src={service.data.embed} width={service.data.width} height={service.data.height} />
+      return <iframe className="my-0 mx-auto" title={`title-${service.id}`} id={service.id} src={service.data.embed} width={service.data.width} height={Number(service.data.height + 140)} />
     case "youtube":
       return <iframe title={`title-${service.id}`} id={service.id} src={service.data.embed} className="my-0 mx-auto max-w-[95%]" width={service.data.width} height={service.data.height} />
     default:

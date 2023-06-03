@@ -24,10 +24,10 @@ const MenuItem = (props: { item: Item, handleNavClick: (event: React.MouseEvent<
   const isSelected =
     props.item.to === location.pathname || location.pathname.startsWith(`${props.item.to}/`)
   return (
-    <li className={clsx("border-t-4 px-6 pt-4 uppercase border-t-transparent", {
+    <li className={clsx("border-t-4 border-t-transparent px-6 py-4 uppercase hover:bg-mainLight transition-colors duration-200", {
       "active": isSelected,
     })}>
-      <NavLink to={props.item.to} onClick={props.handleNavClick}>{props.item.name}</NavLink>
+      <NavLink className="" to={props.item.to} onClick={props.handleNavClick}>{props.item.name}</NavLink>
     </li>
   )}
 
@@ -68,7 +68,7 @@ export const Navigation = () => {
   };
   
   return (
-    <nav className="hidden border-t-2 border-t-gray-300 lg:flex lg:w-[95%] xl:w-[98%]">
+    <nav className="hidden border-t-2 border-t-mainLight lg:flex lg:w-[95%] xl:w-[98%]">
       <div className="flex flex-col mx-auto">
         <ul className="mx-auto mb-4 flex">
           {LINKS.map((item, i) => <MenuItem item={item} handleNavClick={handleNavClick} key={`${i}+${item.name}`} />)}

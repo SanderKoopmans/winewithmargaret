@@ -60,7 +60,7 @@ export const Articles = ({ articles }: any) => {
                     {/* / {categoryName} */}
                     /
                   </p>
-                  <div className="ml-2 flex-grow border-t-2 border-gray-300"></div>
+                  <div className="ml-2 flex-grow border-t-2 border-mainLight"></div>
                 </div>
               </div>
             </Link>
